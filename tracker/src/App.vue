@@ -22,8 +22,11 @@ import { RouterLink, RouterView} from 'vue-router'
  -->
  <h1>Bem- vindo ao app de disparo em massa em mensagens devedores</h1>
 <nav>
+  <br/>
   <RouterLink to="./Modelo">Modelos.</RouterLink>
+   <br/>
   <RouterLink to="./Home">Home.</RouterLink>
+   <br/>
   <RouterView/>
 </nav>
   
