@@ -1,10 +1,16 @@
 
 <template>
-<div>
-<!--Ajeitar o erro de props-->
-<div class="input-group mb-3">
 
-<input type={{type}} name={{name}}  placeholder={{placeholder}} />
+<!--Ajeitar o erro de props-->
+<div class="mb-3" >
+
+<!--<input type={{type}} name={{name}}  placeholder={{placeholder}} />-->
+<div >
+    <label>{{label}}</label>
+<input 
+class="form-control"
+type={{type}} 
+>
 
 
 </div>
@@ -18,10 +24,12 @@ export default{
     name: 'Input',
     props:{
         type:String,
-        placeholder: String,
-        name:String, 
-        //text:String     
+       // placeholder: String,
+        label:String     
     }
 }
 
 </script>
+<style>
+
+</style>

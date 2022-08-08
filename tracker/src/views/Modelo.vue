@@ -1,6 +1,6 @@
 
 <template>
-<div>
+<div class="bg-dark">
 <h2>Crie modelos de mensagens é a página de modelo de mensagens</h2>
 <p>Criar um canal</p>
 
@@ -8,14 +8,38 @@
 type="text"
 name="canal"
 placeholder="Informe o canal"
+label="Canal"
 />
 
-    
+<Input 
+type="text"
+name="titulo"
+placeholder="Informar título"
+label="Título"
+/>
 
+<Input 
+type="text"
+name="conteudo"
+placeholder="Informe o conteúdo"
+label="Conteúdo"
+/>
+
+<Input 
+type="text"
+name="canal"
+placeholder="Informe a ordem"
+label="Ordem"
+/>
+<Input 
+type="number"
+name="intervalo"
+placeholder="Informe o intervalor de noticação"
+label="Intervalor de notificação"
+/>
 <Button 
- criarModelo="Enviar"
+ criarModelo="Adicionar modelo"
  />
-
 
 <br/>
 <span>Mais informações clique aqui.</span>
@@ -39,3 +63,9 @@ export default{
 }
 
 </script>
+
+<style>
+*{
+    margin: 20px;
+}
+</style>

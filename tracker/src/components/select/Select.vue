@@ -1,16 +1,31 @@
 <template>
 
 <div >
+<label>{{labelSelect}}</label>
+<!--<select class="form-select" size="3" >
+    </select> 
+-->
 
-<button class="btn btn-" type="button" 
-@click.stop.prevent="toggle()">
 
-<div show="isOpen">
-{{InfoUnidade}}
+<div class="dropdown">
+    <button
+     class="btn btn-secondary dropdown-toggle" 
+     type="button"
+     data-toggle="dropdown"
+     aria-haspopup="true"
+     aria-expanded="false"
+     >
+        {{mensagem}}
+    </button>
+    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <a class="dropdown-item" href="#">{{teste}}</a>
+        <a class="dropdown-item" href="#">{{teste}}</a>
+        <a class="dropdown-item" href="#">{{teste}}</a>
+    </div>
 
 </div>
-</button>
 </div>
+
 
 </template>
 
@@ -18,22 +33,12 @@
 export default{
     name: 'Select',
     props:{
-       InfoUnidade:{
-        type:String,
-        default: 'Semec',
-        },
-    },
-    data(){
-        return{
-            isOpen:false,
-        };
-
-        },
-    methods:{
-        toggle(){
-        this.isOpen=!this.isOpen;
-            },
-        },
-};
+        option:String,
+        labelSelect:String,
+        mensagem: String,
+        teste: String
+    }
+}
+    
 
 </script>

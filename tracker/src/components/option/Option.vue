@@ -1,7 +1,7 @@
 <template>
 <div>
 
-    <slot>{{UnidadesItem}}</slot>
+    <option>{{UnidadesItem}}</option>
 </div>
 </template>
 

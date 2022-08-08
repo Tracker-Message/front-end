@@ -1,8 +1,10 @@
 <template>
-<button class="btn btn-primary">
+
+<div class="mb-3">
+<button type="submit" class="btn btn-outline-light">
     {{criarModelo}}
 </button>
-
+</div>
 </template>
 
 <script>
@@ -13,3 +15,13 @@
         }
     }
 </script>
+<style>
+.btn{
+    width: 500px;
+    font-size: 20px;
+   
+    font-weight: 700;
+ 
+   
+}
+</style>

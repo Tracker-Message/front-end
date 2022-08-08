@@ -1,23 +1,55 @@
 <script setup>
 
 import { RouterLink, RouterView} from 'vue-router'
-//simport HelloWorld from './components/HelloWorld.vue'
+//import Home from './views/Home.vue';
+
 </script>
 
 <template>
+<div class="teste" >
+
 
 <nav>
-  <br/>
-  <RouterLink to="./Modelo">Modelos.</RouterLink>
-   <br/>
-  <RouterLink to="./Home">Home.</RouterLink>
-   <br/>
-  <RouterView/>
-</nav>
+      
+ 
+  <RouterLink to="./Home">Login</RouterLink>
+     
+  <RouterLink to="./Canal">Canal</RouterLink>
+       
+  <RouterLink to="./MalaDireta">Mala Direta</RouterLink>
   
+  <RouterLink to="./Modelo">Modelos</RouterLink>
+
+  <RouterView/>
+
+</nav>
+<!--<div v-if="!home">
+  <Home/>
+</div>
+-->
+
+</div>
+
 </template>
+
 <style>
-li{
-  text-decoration: none;
+nav{
+background: green;
+padding: 20px;
+margin: 10px;
 }
+
+nav a{
+text-decoration: none;
+color: white; 
+background: black;
+margin: 10px;
+padding: 10px;
+text-align: center;
+}
+a:hover{
+background: orange;
+padding: 10px;
+}
+
 </style>
