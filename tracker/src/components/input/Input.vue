@@ -3,16 +3,12 @@
 <div>
 <!--Ajeitar o erro de props-->
 <div class="input-group mb-3">
-<input 
- class="form-control"
-type={{type}} 
-placeholder={{placeholder}}
-name={{name}}
 
-/>
+<input type={{type}} name={{name}}  placeholder={{placeholder}} />
 
 
 </div>
+
 </div>
 </template>
 
@@ -23,15 +19,8 @@ export default{
     props:{
         type:String,
         placeholder: String,
-        name:String,      
-    },
-    data(){
-        return{
-           /* type:'text',
-            name: 'semec',
-            id: 'teste',
-            placeholder: 'testando'*/
-        }
+        name:String, 
+        //text:String     
     }
 }
 
