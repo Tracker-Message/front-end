@@ -1,8 +1,9 @@
 
 <template>
+<div class="modelo">
 <div class="bg-dark">
 <h2>Crie modelos de mensagens é a página de modelo de mensagens</h2>
-<p>Criar um canal</p>
+<p>Crie um modelo de mensagem</p>
 
 <Input 
 type="text"
@@ -18,11 +19,12 @@ placeholder="Informar título"
 label="Título"
 />
 
-<Input 
+<Textarea 
 type="text"
 name="conteudo"
 placeholder="Informe o conteúdo"
 label="Conteúdo"
+Infomsg="Conteúdo"
 />
 
 <Input 
@@ -35,14 +37,16 @@ label="Ordem"
 type="number"
 name="intervalo"
 placeholder="Informe o intervalor de noticação"
-label="Intervalor de notificação"
+label="Intervalo de notificação"
 />
+
 <Button 
  criarModelo="Adicionar modelo"
  />
 
 <br/>
-<span>Mais informações clique aqui.</span>
+
+</div>
 </div>
 </template>
 
@@ -50,7 +54,7 @@ label="Intervalor de notificação"
 import Input from '../components/input/Input.vue';
 import Button from '../components/button/Button.vue';
 import Select from '../components/select/Select.vue';
-//import Option from '../components/option/Option.vue';
+import Textarea from '../components/textarea/Textarea.vue';
 
 export default{
     name: "Modelo",
@@ -58,6 +62,7 @@ export default{
         Input,
         Button,
         Select,
+        Textarea
         
     }
 }

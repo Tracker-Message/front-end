@@ -3,7 +3,7 @@ import { createPinia } from 'pinia'
 
 import App from './App.vue'
 import router from './router'
-
+import PageHome from './views/PageHome.vue'
 import bootstrap from '../node_modules/bootstrap/dist/css/bootstrap.css';
 
 

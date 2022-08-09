@@ -1,9 +1,11 @@
 <template>
-<form class="row g-3">
+<form class="mb-3" >
 <div class="col-md-6">
 
-   <label>{{infoalgo}}</label>
-   <textarea class="form-control" aria-label="textarea"></textarea>
+   <label>{{Infomsg}}</label>
+   <textarea class="form-control" aria-label="textarea" rows="4" name={{name}}>
+
+   </textarea>
 </div>
 
 </form>
@@ -12,7 +14,8 @@
 export default{
     name: 'Textarea',
     props:{
-    menssagem: String
+   Infomsg: String,
+   name: String
     }
 }
 </script>

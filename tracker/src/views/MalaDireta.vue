@@ -1,4 +1,5 @@
 <template>
+<div class="mala_direta">
 <h1>Mala direta</h1>
 
 <div class="bg-dark" >
@@ -40,7 +41,8 @@ labelSelect="Tipo de notificação"
 <Button 
 criarModelo="Enviar notificacao"
 />
-
+<br/>
+</div>
 </div>
 
 </template>
@@ -64,6 +66,12 @@ export default{
     }
 }
 </script>
-<style>
 
+<style>
+.mala_direta{
+    margin: 25px;
+}
+h1{
+    color: black;
+}
 </style>

@@ -1,5 +1,6 @@
 
 <template>
+<div class="home">
   <main>
     <navbar/>
     <div class="bg-dark" >
@@ -21,10 +22,10 @@
  criarModelo="Logar"
 />
 
-
+<br/>
  </div>
  </main>
-
+</div>
 </template>
 
 <script>
@@ -44,13 +45,14 @@ export default{
 
 <style>
 
-h1, p{
+.home h1, p{
 
 color: white;
 text-align: center;
 }
 p{
   font-size: 20px;
+  color: white;
 }
 label{
   color: white;

@@ -3,6 +3,9 @@ import Modelo from '../views/Modelo.vue'
 import Home from '../views/Home.vue'
 import Canal from '../views/Canal.vue'
 import MalaDireta from '../views/MalaDireta.vue'
+//conteúdo principal
+import PageHome from '../views/PageHome.vue'
+
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -29,7 +32,12 @@ const router = createRouter({
       path: '/MalaDireta',
       name: 'MalaDireta',
       component: MalaDireta
-    }
+    },
+  /*  {
+      path: '/PageHome',
+      name: 'PageHome',
+      component: PageHome
+    }*/
   ]
 })
 

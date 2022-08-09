@@ -8,18 +8,18 @@ import { RouterLink, RouterView} from 'vue-router'
 <template>
 <div class="teste" >
 
-
 <nav>
       
- 
-  <RouterLink to="./Home">Login/</RouterLink>
-     <RouterLink to="./">Voltar/</RouterLink> 
+
+  <RouterLink to="./Home">Home/Login</RouterLink>
+     <RouterLink  to="./">Page</RouterLink> 
  <!--<RouterLink to="./Canal">Canal</RouterLink>
        
   <RouterLink to="./MalaDireta">Mala Direta</RouterLink>
   
   <RouterLink to="./Modelo">Modelos</RouterLink>
 --> 
+
   <RouterView/>
 
 </nav>
@@ -33,8 +33,8 @@ import { RouterLink, RouterView} from 'vue-router'
 </template>
 
 <style>
-nav{
-  /*
+ /*nav{
+ 
   background: green;
 padding: 20px;
 margin: 10px;
@@ -52,7 +52,10 @@ a:hover{
 background: orange;
 padding: 10px;
 }
-  */
+  
 }
-
+h1{
+  color:black;
+}
+*/
 </style>

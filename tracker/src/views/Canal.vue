@@ -1,5 +1,7 @@
 <template>
 <div class="bg-dark" >
+    <div class="canal">
+    <h1>Crie um canal de mensagem</h1>
     <Input 
 type="text"
 name="canal"
@@ -11,7 +13,8 @@ label="Informe o canal"
 <Button 
  criarModelo="Enviar"
  />
-
+<br/>
+</div>
 </div>
 </template>
 
@@ -29,4 +32,7 @@ export default{
 </script>
 <style>
 
+.canal h1{
+    color: white;
+}
 </style>
