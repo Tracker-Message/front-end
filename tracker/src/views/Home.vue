@@ -32,7 +32,7 @@
 //import TheWelcome from '@/components/TheWelcome.vue'
 import Input from '../components/input/Input.vue';
 import Button from '../components/button/Button.vue';
-import navbar from '../navbar/navbar.vue'
+import navbar from '../navbar/navbar.vue';
 export default{
   name: 'Login',
   components: {

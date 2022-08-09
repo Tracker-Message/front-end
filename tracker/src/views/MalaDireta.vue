@@ -14,28 +14,13 @@ label="Informe a unidade"
 
 
 <Select 
-labelSelect="Tipo de canal"
-mensagem="sms"
-teste="teste1">
-    <!--<option>SMS</option>
-    <option>Email</option>
-    <option>Whatszap</option>
-    -->
-    
-</Select>
+labelSelect="Informe o canal"
+/>
+
 
 <InputFile
 labelFile="Anexar arquivo"
 />
-
-<Select 
-labelSelect="Tipo de notificação"
- mensagem="Boleto atrasado">
-    
-   <!-- <option>Cadastrar empresa</option>
-    <option>Whatszap</option>
-    -->
-</Select>
 
 
 <Button 
@@ -52,7 +37,7 @@ import Input from '../components/input/Input.vue';
 import InputFile from '../components/input/InputFile.vue';
 import Button from '../components/button/Button.vue';
 import Select from '../components/select/Select.vue';
-import Option from '../components/option/Option.vue';
+//import Option from '../components/option/Option.vue';
 
 export default{
     name: 'MalaDireta',

@@ -11,6 +11,7 @@ import { RouterLink, RouterView} from 'vue-router';
   <RouterLink to="./MalaDireta">Mala Direta</RouterLink>
   
   <RouterLink to="./Modelo">Modelos</RouterLink>
+  <RouterLink to="./MyModelos">Meus modelos</RouterLink>
   <RouterView/>
   </nav>
   </div>

@@ -1,6 +1,6 @@
 <template>
 <form class="mb-3" >
-<div class="col-md-6">
+<div class="col-md-11,5">
 
    <label>{{Infomsg}}</label>
    <textarea class="form-control" aria-label="textarea" rows="4" name={{name}}>

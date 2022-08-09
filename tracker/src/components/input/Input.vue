@@ -4,7 +4,7 @@
 <!--Ajeitar o erro de props-->
 <div class="mb-3" >
 
-<!--<input type={{type}} name={{name}}  placeholder={{placeholder}} />-->
+
 <div >
     <label>{{label}}</label>
 <input 

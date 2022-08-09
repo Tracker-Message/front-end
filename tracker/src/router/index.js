@@ -4,7 +4,7 @@ import Home from '../views/Home.vue'
 import Canal from '../views/Canal.vue'
 import MalaDireta from '../views/MalaDireta.vue'
 //conteúdo principal
-import PageHome from '../views/PageHome.vue'
+import MyModelos from '../views/MyModelos.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -18,10 +18,6 @@ const router = createRouter({
       path: '/Modelo',
       name: 'Modelo',
       component: Modelo
-      // route level code-splitting
-      // this generates a separate chunk (About.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      //component: () => import('../views/AboutView.vue')
     },
     {
       path: '/Canal',
@@ -33,11 +29,11 @@ const router = createRouter({
       name: 'MalaDireta',
       component: MalaDireta
     },
-  /*  {
-      path: '/PageHome',
-      name: 'PageHome',
-      component: PageHome
-    }*/
+   {
+      path: '/MyModelos',
+      name: 'MyModelos',
+      component: MyModelos
+    }
   ]
 })
 
