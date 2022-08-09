@@ -12,14 +12,14 @@ import { RouterLink, RouterView} from 'vue-router'
 <nav>
       
  
-  <RouterLink to="./Home">Login</RouterLink>
-     
-  <RouterLink to="./Canal">Canal</RouterLink>
+  <RouterLink to="./Home">Login/</RouterLink>
+     <RouterLink to="./">Voltar/</RouterLink> 
+ <!--<RouterLink to="./Canal">Canal</RouterLink>
        
   <RouterLink to="./MalaDireta">Mala Direta</RouterLink>
   
   <RouterLink to="./Modelo">Modelos</RouterLink>
-
+--> 
   <RouterView/>
 
 </nav>
@@ -34,7 +34,8 @@ import { RouterLink, RouterView} from 'vue-router'
 
 <style>
 nav{
-background: green;
+  /*
+  background: green;
 padding: 20px;
 margin: 10px;
 }
@@ -50,6 +51,8 @@ text-align: center;
 a:hover{
 background: orange;
 padding: 10px;
+}
+  */
 }
 
 </style>
