@@ -10,6 +10,7 @@
 <input 
 class="form-control"
 type={{type}} 
+value=''
 >
 
 
@@ -25,7 +26,8 @@ export default{
     props:{
         type:String,
        // placeholder: String,
-        label:String     
+        label:String,
+        value: String
     }
 }
 

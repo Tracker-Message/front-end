@@ -3,6 +3,7 @@ import Modelo from '../views/Modelo.vue'
 import Home from '../views/Home.vue'
 import Canal from '../views/Canal.vue'
 import MalaDireta from '../views/MalaDireta.vue'
+import Menu from '../views/Menu.vue'
 //conteúdo principal
 import MyModelos from '../views/MyModelos.vue'
 
@@ -33,7 +34,12 @@ const router = createRouter({
       path: '/MyModelos',
       name: 'MyModelos',
       component: MyModelos
-    }
+    },
+  {
+  path: '/Menu',
+  name: 'Menu',
+  component: Menu
+  }
   ]
 })
 
