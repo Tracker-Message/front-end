@@ -1,10 +1,11 @@
-<script setup>
-//import {ref} from 'vue'
-//import { RouterLink, RouterView} from 'vue-router'
+<script setup >
+import {ref} from 'vue'
+import { RouterLink, RouterView} from 'vue-router'
 import Home from './views/Home.vue';
+//importando
+import {userStore} from './stores/user'
+import { mapActions, storeToRefs } from 'pinia';
 
-//defineProps<{msg: string}>();
-//const user= userStore();
 </script>
 
 <template>
@@ -23,6 +24,7 @@ import Home from './views/Home.vue';
 <RouterView/>
 
 <Home/>
+
 </nav>
 
 

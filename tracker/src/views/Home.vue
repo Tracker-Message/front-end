@@ -2,29 +2,39 @@
 <template>
 <div class="home">
   <main>
-   
   <div class="bg-dark" >
    <h1>Bem-vindo!</h1>
    <p>Faça login </p>
    <p>Tracker é um projeto para enviar mensagens para clientes</p>
    
-  <form action="" @submit="enviarForm($event)">
-   <Input type="email"
-   name="emailUser"
-   placeholder="email@email.com"
+  <form action=""
+   v-on:submit.prevent="checkForm">
+   <Input 
+   id="Useremail"
+   type="email"
    label="Informe o email"
-   value="email"
+   placeholder="Informe o Email"
+   v-model="email"
    />
-   <Input type="password"
-   name="senhalUser"
-   placeholder="email@email.com"
+   <Input 
+   id="senha"
+   type="password"
+    placeholder="Informe a senha"
    label="Informe a senha"
-   value="senha"
+   v-model="senha"
    />
+
 
 <Button 
  criarModelo="Logar"
+
 />
+
+<div class="alert alert-danger"
+ v-for="error in errors">
+ {{error}}
+ </div>
+
 </form>
 <br/>
  </div>
@@ -39,6 +49,8 @@ import Button from '../components/button/Button.vue';
 import navbar from '../navbar/navbar.vue';
 //import Menu from './Menu.vue'
 
+
+
 export default{
   name: 'Login',
   components: {
@@ -46,30 +58,48 @@ export default{
     Button,
     navbar
   },
- methods: {
-enviarForm(e){
-  e.preventDefault();
-  console.log("Ola, mundo")
-}
+  data(){
+    return {
+      email:'',
+      senha:'',
+      errors:[]
+    }
+  },
+   methods: {
+    //funçao de validaçaõ
+    checkForm:function(){
+      console.log(this)
+      //limpar o arrray
+      this.errors=[];
+      if(!this.email){
+        this.errors.push("O email precisa ser informado!")
+       
+      }
+
+      if(!this.senha){
+        this.errors.push("A senha precisa ser informado!")
+      }
+       console.log(this.email.value)
+    }
+
   }
 }
-
 
 </script>
 
 <style>
 
 .home h1, p{
-
 color: white;
 text-align: center;
 }
 p{
   font-size: 20px;
-  color: white;
+  color:white;
 }
 label{
   color: white;
+  
 }
 
 

@@ -1,8 +1,23 @@
 import { defineStore } from 'pinia'
 
 
-export const userStore = defineStore({
-  id: 'user',
+export const userStore = defineStore('authUser',
+{
+  state:()=>{
+   /* return {
+      useremail:"adm@email.com",
+    };*/
+    
+  },
+  actions:{
+    alertii(){
+      console.log("Ok");
+    }
+    
+  },
+
+
+/* // id: 'user',
   state: () => ({
     counter: 0
   }),
@@ -14,6 +29,6 @@ export const userStore = defineStore({
     increment() {
       this.counter++
     }
-  }
+  }*/
 
 })

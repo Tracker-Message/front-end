@@ -2,21 +2,28 @@
 <template>
 
 <!--Ajeitar o erro de props-->
+<ValidationProvider  v-slot="v">
 <div class="mb-3" >
 
 
-<div >
-    <label>{{label}}</label>
+<div>
+    
+    <label >
+        {{label}}
+  
 <input 
 class="form-control"
-type={{type}} 
-value=''
->
-
+ :id="id"
+ :type="type"
+ :placeholder="placeholder"
+ :v-model="innerValue"
+ />
+  </label>
 
 </div>
 
 </div>
+</ValidationProvider>
 </template>
 
 <script>
@@ -24,11 +31,20 @@ value=''
 export default{
     name: 'Input',
     props:{
-        type:String,
-       // placeholder: String,
-        label:String,
-        value: String
-    }
+		id: String,
+		type: String,
+		placeholder: String,
+		value: String,
+        label:String
+        },
+        data(){
+            return{
+                innerValue:'',
+            }
+        },
+//ainda falta
+
+
 }
 
 </script>

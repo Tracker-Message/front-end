@@ -20,6 +20,7 @@ labelSelect="Informe o canal"
 
 <InputFile
 labelFile="Anexar arquivo"
+
 />
 
 
