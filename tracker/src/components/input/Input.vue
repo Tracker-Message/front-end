@@ -1,47 +1,31 @@
-
 <template>
 
-<!--Ajeitar o erro de props-->
-<ValidationProvider  v-slot="v">
-<div class="mb-3" >
+  <!--Ajeitar o erro de props-->
+  <div class="mb-3">
 
 
-<div>
-    
-    <label >
-        {{label}}
-  
-<input 
-class="form-control"
- :id="id"
- :type="type"
- :placeholder="placeholder"
- :v-model="innerValue"
- />
-  </label>
+    <div>
 
-</div>
+      <label> {{ label }}
+        <input class="form-control" :type="type" :placeholder="placeholder" :value="modelValue" @input="$emit('update:modelValue', $event.target.value)"/>
+      </label>
 
-</div>
-</ValidationProvider>
+    </div>
+
+  </div>
 </template>
 
 <script>
 
-export default{
-    name: 'Input',
-    props:{
-		id: String,
-		type: String,
-		placeholder: String,
-		value: String,
-        label:String
-        },
-        data(){
-            return{
-                innerValue:'',
-            }
-        },
+export default {
+  name: 'Input',
+  props: {
+    type: String,
+    placeholder: String,
+    label: String,
+    modelValue: String
+  },
+  emits: ['update:modelValue']
 //ainda falta
 
 

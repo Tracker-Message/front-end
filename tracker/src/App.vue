@@ -23,8 +23,6 @@ import { mapActions, storeToRefs } from 'pinia';
  
 <RouterView/>
 
-<Home/>
-
 </nav>
 
 
