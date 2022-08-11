@@ -6,30 +6,5 @@
       "id": 1
     }
   ],
-  "modelos": [
-    {
-      "canal": "sms",
-      "titulo": "pagamento atrasado",
-      "conteudo": "",
-      "ordem": "2",
-      "intervalor": "3",
-      "id": 2
-    },
-    {
-      "canal": "email",
-      "titulo": "Prazo de confirmar cadastro",
-      "conteudo": "",
-      "ordem": "1",
-      "intervalor": "5",
-      "id": 3
-    },
-    {
-      "canal": "email",
-      "titulo": "cadastro desatualizado",
-      "conteudo": "",
-      "ordem": "4",
-      "intervalor": "3",
-      "id": 4
-    }
-  ]
+  "modelos": []
 }

@@ -2,10 +2,17 @@
 <form class="mb-3" >
 <div class="col-md-11,5">
 
-   <label>{{Infomsg}}</label>
-   <textarea class="form-control" aria-label="textarea" rows="4" name={{name}}>
+   <label>{{label}}</label>
+   <textarea 
+   class="form-control" 
+   aria-label="textarea" 
+   rows="4" 
+   :placeholder="placeholder"
+   :value="modelConteudo"
+   @input="modelConteudo= $event.target.value"
+   ></textarea>
 
-   </textarea>
+   
 </div>
 
 </form>
@@ -14,8 +21,11 @@
 export default{
     name: 'Textarea',
     props:{
-   Infomsg: String,
-   name: String
-    }
+   label: String,
+   placeholder: String,
+   type:String,
+   modelConteudo:String
+    },
+  // emits:['update:modelConteudo']
 }
 </script>

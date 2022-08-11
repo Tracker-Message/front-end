@@ -25,7 +25,6 @@ type="text"
 v-model="conteudo"
 placeholder="Informe o conteúdo"
 label="Conteúdo"
-Infomsg="Conteúdo"
 />
 
 <Input 

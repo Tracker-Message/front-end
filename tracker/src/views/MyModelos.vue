@@ -5,7 +5,7 @@
 <Card
 :canal="modelo.canal"
 :titulo="modelo.titulo"
-:contedo="modelo.conteudo"
+:conteudo="modelo.conteudo"
 :ordem="modelo.ordem"
 :intervalo="modelo.intervalor"
 @click="deleteDado(modelo.id)"
@@ -50,9 +50,9 @@ export default{
         },
 
         //atualizar
-        async editarDado(event, id){
+       /* async editarDado(event, id){
             const 
-        }
+        }*/
 
     },
     mounted(){
