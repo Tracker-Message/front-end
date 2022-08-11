@@ -1,0 +1,19 @@
+{
+  "userAuth": [
+    {
+      "email": "email@email.com",
+      "senha": "12345",
+      "id": 1
+    }
+  ],
+  "modelos": [
+    {
+      "canal": "tetse",
+      "titulo": "tiluo",
+      "conteudo": "",
+      "ordem": "1",
+      "intervalor": "2",
+      "id": 1
+    }
+  ]
+}
