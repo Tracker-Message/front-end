@@ -7,7 +7,8 @@
         <p>Tracker é um projeto para enviar mensagens para clientes</p>
 
         <form action="" v-on:submit.prevent="checkForm">
-          <Input type="text" label="Informe o email" placeholder="Informe o Email" v-model="email"/>
+          <Input type="text" label="Informe o email"
+           placeholder="Informe o Email" v-model="email"/>
           <Input type="password" placeholder="Informe a senha" label="Informe a senha" v-model="senha"/>
 
           <Button criarModelo="Logar"/>
@@ -48,9 +49,9 @@ export default {
   },
   methods: {
     //função de validação
-    checkForm: function () {
+   /* checkForm: function () {
       // // limpar o array
-      this.errors = [];
+     this.errors = [];
       if (!this.email) {
         this.errors.push("O email precisa ser informado!")
       }
@@ -59,29 +60,35 @@ export default {
         this.errors.push("A senha precisa ser informado!")
       }  
      
-    },
+    },*/
   //resgatando dados da api fake
-     async getUser(){
+   async getUser(){
         const req=await fetch("http://localhost:3000/userAuth")
         const data=await req.json();
 
       this.email=data.email;
       this.senha=data.senha;
-      console.log(data.email)
+      //console.log(data.email)
       },
       //enviando
       async checkForm(){
-        console.log("teste")
+        console.log("teste 1")
         const data={
           email:this.email,
           senha:this.senha
         }
-        constJson=JSON.stringify(data);
+        //console.log("teste 2",data)
+
+        const constJson=JSON.stringify(data);
         const req=await fetch("http://localhost:3000/userAuth",{
           method:"POST",
-          headers:{"Content-Type":"application/json"}
+          headers:{"Content-Type":"application/json"},
+          body:constJson
         })
-      //console.log(data)
+        //falta mais
+        const res = await req.json()
+
+        //console.log("Teste 3",res)
 
       }
 

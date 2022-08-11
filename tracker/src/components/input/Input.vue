@@ -7,7 +7,11 @@
     <div>
 
       <label> {{ label }}
-        <input class="form-control" :type="type" :placeholder="placeholder" :value="modelValue" @input="$emit('update:modelValue', $event.target.value)"/>
+        <input class="form-control" 
+        :type="type" 
+        :placeholder="placeholder"
+         :value="modelValue" 
+         @input="$emit('update:modelValue', $event.target.value)"/>
       </label>
 
     </div>

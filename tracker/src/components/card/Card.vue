@@ -30,6 +30,7 @@ export default {
         conteudo:String,
         ordem:String,
         intervalo:String
-    }
+    },
+    
 }
 </script>
