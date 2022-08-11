@@ -1,0 +1,10 @@
+{
+    "userAuth":{
+        "user":[
+            {
+                "email":"adm@email.com",
+                "senha":123456
+            }
+        ]
+    }
+}

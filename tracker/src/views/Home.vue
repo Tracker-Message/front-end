@@ -16,6 +16,7 @@
             {{ error }}
           </div>
 
+<p>oi</p>
         </form>
         <br/>
       </div>
@@ -56,8 +57,37 @@ export default {
 
       if (!this.senha) {
         this.errors.push("A senha precisa ser informado!")
+      }  
+     
+    },
+  //resgatando dados da api fake
+     async getUser(){
+        const req=await fetch("http://localhost:3000/userAuth")
+        const data=await req.json();
+
+      this.email=data.email;
+      this.senha=data.senha;
+      console.log(data.email)
+      },
+      //enviando
+      async checkForm(){
+        console.log("teste")
+        const data={
+          email:this.email,
+          senha:this.senha
+        }
+        constJson=JSON.stringify(data);
+        const req=await fetch("http://localhost:3000/userAuth",{
+          method:"POST",
+          headers:{"Content-Type":"application/json"}
+        })
+      //console.log(data)
+
       }
-    }
+
+  },
+  monted(){
+    this.getUser();
 
   }
 }
@@ -66,11 +96,14 @@ export default {
 
 <style>
 
-.home h1, p {
+.home h1, p, li {
   color: white;
   text-align: center;
 }
-
+li{
+  color: blue;
+  background: blue;
+}
 p {
   font-size: 20px;
   color: white;
