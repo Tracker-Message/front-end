@@ -14,6 +14,14 @@
       "ordem": "1",
       "intervalor": "2",
       "id": 1
+    },
+    {
+      "canal": "sms",
+      "titulo": "pagamento atrasado",
+      "conteudo": "",
+      "ordem": "2",
+      "intervalor": "3",
+      "id": 2
     }
   ]
 }

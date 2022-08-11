@@ -2,14 +2,15 @@
 <div class="card">
 <div class="card-body">
 
-    <h1>{{canal}}</h1>
-    <h2>{{titulo}}</h2>
-    <h3>{{conteudo}}</h3>
-    <h3>{{ordem}}</h3>
-    <h3>{{intervalo}}</h3>
+    <h2>Canal:{{canal}}</h2>
+    <h2>Titúlo:{{titulo}}</h2>
+    <h3>Conteúdo:{{conteudo}}</h3>
+    <h3>Ordem:{{ordem}}</h3>
+    <h3>Intervalo de notifcação: {{intervalo}} Mês</h3>
    
-    <a href="#"  class="btn btn-primary" >Editar</a>
-     <a href="#"  class="btn btn-danger" >Excluir</a>
+    <a href="#"  class="btn btn-primary">Editar</a>
+    <a href="#"  class="btn btn-danger">Excluir</a>
+    <a href="#"  class="btn btn-success">Usar</a>
 </div>
 
 </div>
@@ -25,12 +26,29 @@ export default {
     Button
     },
     props:{
-        canal:String,
-        titulo:String,
-        conteudo:String,
-        ordem:String,
-        intervalo:String
+        canal:{
+            type:Object
+        },
+        titulo:{
+            type:Object
+        },
+        conteudo:{
+            type:Object
+        },
+        ordem:{
+            type:Object
+        },
+        intervalo:{
+            type:Object
+        }
+
     },
     
 }
 </script>
+<style>
+ul li{
+    color: black;
+   
+}
+</style>

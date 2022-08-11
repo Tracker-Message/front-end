@@ -17,7 +17,7 @@
             {{ error }}
           </div>
 
-<p>oi</p>
+
         </form>
         <br/>
       </div>
@@ -107,10 +107,7 @@ export default {
   color: white;
   text-align: center;
 }
-li{
-  color: blue;
-  background: blue;
-}
+
 p {
   font-size: 20px;
   color: white;

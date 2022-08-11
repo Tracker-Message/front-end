@@ -1,23 +1,16 @@
 <template>
 <div>
     <h2>Estes são os modelos de mensagens criados</h2>
+    <div v-for="modelo in modelos" >
 <Card
-canal="Sms"
-titulo="Pagamento vencido"
-conteudo="Aumento de juros sobre a divida"
-ordem="Teste"
-intervalor="Teste 1"
->oi
-
-</Card>
-    <Card
-canal="E-mail"
-titulo="Pagamento vencido"
-conteudo="Aumento de juros sobre a divida"
-ordem="Teste"
-intervalor="Teste1"
+:canal="modelo.canal"
+:titulo="modelo.titulo"
+:contedo="modelo.conteudo"
+:ordem="modelo.ordem"
+:intervalo="modelo.intervalor"
 />
 
+</div>
 <br/>
 
 </div>
