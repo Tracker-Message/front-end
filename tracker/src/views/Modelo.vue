@@ -101,6 +101,12 @@ export default{
             })
             //falta mais
             const res = await req.json()
+            //limpando dados do form
+            this.canal="";
+            this.titulo="";
+            this.conteudo="";
+            this.ordem="";
+            this.intervalo="";
          //console.log("teste 3", res)
         }
 

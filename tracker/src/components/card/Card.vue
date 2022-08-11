@@ -6,11 +6,11 @@
     <h2>Titúlo:{{titulo}}</h2>
     <h3>Conteúdo:{{conteudo}}</h3>
     <h3>Ordem:{{ordem}}</h3>
-    <h3>Intervalo de notifcação: {{intervalo}} Mês</h3>
+    <h3>Intervalo de notifcação: {{intervalo}} Meses</h3>
    
-    <a href="#"  class="btn btn-primary">Editar</a>
-    <a href="#"  class="btn btn-danger">Excluir</a>
-    <a href="#"  class="btn btn-success">Usar</a>
+    <a href="#" :click="editarDado" class="btn btn-primary">Editar</a>
+    <a href="#" :click="deleteDado" class="btn btn-danger">Excluir</a>
+    <a href="#" :click="usarDado" class="btn btn-success">Usar</a>
 </div>
 
 </div>
@@ -40,6 +40,15 @@ export default {
         },
         intervalo:{
             type:Object
+        },
+        editarDado:{
+            type:Object
+        },
+        deleteDado:{
+            type:Function
+        },
+        usarDado:{
+            type:Function
         }
 
     },

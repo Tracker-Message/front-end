@@ -22,6 +22,5 @@
     font-size: 20px;
     font-weight: 700;
  
-   
 }
 </style>

@@ -8,6 +8,8 @@
 :contedo="modelo.conteudo"
 :ordem="modelo.ordem"
 :intervalo="modelo.intervalor"
+@click="deleteDado(modelo.id)"
+@change="editarDado($event,modelo.id)"
 />
 
 </div>
@@ -35,8 +37,23 @@ export default{
         const data=await req.json();
         this.modelos=data;
         //resgatar
-    console.log(this.modelos)
+    //console.log(this.modelos)
+        },
+        //deletar
+        async deleteDado(id){
+        const req=await fetch(`http://localhost:3000/modelos/${id}`,{
+            method:"DELETE"
+        })
+        const res=await req.json();
+        //atualizar a deleção
+        this.getMyModelos();
+        },
+
+        //atualizar
+        async editarDado(event, id){
+            const 
         }
+
     },
     mounted(){
         this.getMyModelos();

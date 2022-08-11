@@ -8,20 +8,28 @@
   ],
   "modelos": [
     {
-      "canal": "tetse",
-      "titulo": "tiluo",
-      "conteudo": "",
-      "ordem": "1",
-      "intervalor": "2",
-      "id": 1
-    },
-    {
       "canal": "sms",
       "titulo": "pagamento atrasado",
       "conteudo": "",
       "ordem": "2",
       "intervalor": "3",
       "id": 2
+    },
+    {
+      "canal": "email",
+      "titulo": "Prazo de confirmar cadastro",
+      "conteudo": "",
+      "ordem": "1",
+      "intervalor": "5",
+      "id": 3
+    },
+    {
+      "canal": "email",
+      "titulo": "cadastro desatualizado",
+      "conteudo": "",
+      "ordem": "4",
+      "intervalor": "3",
+      "id": 4
     }
   ]
 }

@@ -20,7 +20,7 @@ export default{
     },
    data(){
         return{
-    arrayCanal: ["sms", "email", "Whatszap"]
+    arrayCanal: ["sms", "email", "Whatsaap"]
         }
       
         
