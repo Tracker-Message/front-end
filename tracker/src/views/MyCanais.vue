@@ -3,10 +3,9 @@
 <div>
    
     <!--Precisa ser envolvido em uma div-->
-<div v-for="canal in canalMsg">
+<div v-for="canal in canais">
 
-<Table :canalMsg="canal.canalMsg"
-/>
+<Table :name="canal.name"/>
 
 </div>
 
@@ -23,17 +22,21 @@ components:{
 },
 data(){
     return{
-        canalMsg:""
+        name:""
     }
 }, methods:{
     async getMyCanais(){
-        const req=await fetch("http://localhost:3000/canalMsg")
+        const req=await fetch("http://homologacao.api.tracker.online.maceio.al.gov.br/v1/canais",{
+            method:"GET",
+            
+        });
+     
         const data=await req.json();
-        this.canalMsg=data;
+        this.canais=data;
 
-        console.log("testando os canais", this.canalMsg)
+        console.log("testando os canais", this.canais)
 
- //const res=await req.json();
+        //const res=await req.json();
         //atualizar a deleção
        // this.getMyCanais();
 },

@@ -5,7 +5,7 @@
        
         <tbody>
             <tr>
-                <td>{{canalMsg}}</td>
+                <td>{{name}}</td>
             </tr>
         </tbody>
     </table>
@@ -16,7 +16,7 @@
 export default {
     name: 'Table',
     props:{
-        canalMsg:{
+        name:{
         type:Object
         }
     }

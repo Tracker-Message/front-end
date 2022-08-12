@@ -6,7 +6,7 @@
     
     <Input 
 type="text"
-v-model="canalMsg"
+v-model="name"
 placeholder="Informe o canal"
 label="Informe o canal"
 />
@@ -43,22 +43,22 @@ export default{
     },
     data(){
         return{
-             canalMsg:""
+             name:""
         }
     },
     methods:{
         async getCanais(){
-            const req=await fetch("http://localhost:3000/canalMsg");
+            const req=await fetch("http://homologacao.api.tracker.online.maceio.al.gov.br/v1/canais");
             const data=await req.json();
 
-            this.canalMsg=data.canalMsg;
+            this.name=data.name;
            //this.canalMsg=data;
            //console.log("teste",this.canalMsg)
         },
         //enviar
         async CanalMsgForm(){
             const data={
-                 canalMsg:this.canalMsg
+                 name:this.name
                  
             }
             console.log("clicou")
@@ -66,16 +66,16 @@ export default{
                  console.log("teste 1", data)
 
             const CanalMsgJson=JSON.stringify(data);
-            const req=await fetch("http://localhost:3000/canalMsg",{
+            const req=await fetch("ttp://homologacao.api.tracker.online.maceio.al.gov.br/v1/canais",{
                 method:"POST",
-                headers:{"Content-Type":"application/json"},
+              
                 body:CanalMsgJson
             });
 
             const res =await req.json()
               //console.log("teste 2", res)
                //limpando
-               this.canalMsg="";
+               this.name="";
         },
 
        
