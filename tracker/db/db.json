@@ -15,5 +15,35 @@
       "intervalor": "1",
       "id": 1
     }
+  ],
+  "canalMsg": [
+    {
+      "canalMsg": "email",
+      "id": 1
+    },
+    {
+      "canalMsg": "whatsapp",
+      "id": 2
+    },
+    {
+      "canalMsg": "ligaçaõ",
+      "id": 3
+    },
+    {
+      "canalMsg": "chamada de video",
+      "id": 4
+    },
+    {
+      "canalMsg": "torpedo",
+      "id": 5
+    },
+    {
+      "canalMsg": "msg",
+      "id": 6
+    },
+    {
+      "canalMsg": "torpedo",
+      "id": 7
+    }
   ]
 }

@@ -7,6 +7,8 @@ import Menu from '../views/Menu.vue'
 //conteúdo principal
 import MyModelos from '../views/MyModelos.vue'
 
+//testes
+import MyTable from '../views/MyCanais.vue'
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -34,6 +36,11 @@ const router = createRouter({
       path: '/MyModelos',
       name: 'MyModelos',
       component: MyModelos
+    },
+    {
+      path: '/MyCanais',
+      name: 'MyCanais',
+      component: MyTable
     },
   {
   path: '/Menu',
