@@ -6,13 +6,14 @@
 
     <div>
 
-      <label> {{ label }}
+      <label> {{ label }}  </label>
         <input class="form-control" 
         :type="type" 
         :placeholder="placeholder"
          :value="modelValue" 
-         @input="$emit('update:modelValue', $event.target.value)"/>
-      </label>
+         @input="$emit('update:modelValue', $event.target.value)"
+         />
+    
 
     </div>
 
@@ -31,7 +32,6 @@ export default {
   },
   emits: ['update:modelValue']
 //ainda falta
-
 
 }
 

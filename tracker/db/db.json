@@ -2,20 +2,20 @@
   "autenticar": [],
   "modelos": [
     {
-      "canal": "",
       "name": "iptu",
-      "content": "",
+      "content": "esta chegando a data de pagamento",
       "id": 1
+    },
+    {
+      "name": "mei",
+      "content": "precisa regugarizar cadaastro",
+      "id": 2
     }
   ],
   "canais": [
     {
       "name": "sms",
       "id": 1
-    },
-    {
-      "name": "email",
-      "id": 2
     }
   ],
   "mala-direta": [],

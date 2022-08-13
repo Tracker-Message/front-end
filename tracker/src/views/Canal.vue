@@ -42,7 +42,7 @@ export default{
     },
     data(){
         return{
-             name:""
+             name:''
         }
     },
     methods:{
@@ -77,9 +77,9 @@ export default{
                this.name="";
         }
     },   
-    mounted(){     
+   /* mounted(){     
        this.getCanais();     
-    }
+    }*/
 }
 
 

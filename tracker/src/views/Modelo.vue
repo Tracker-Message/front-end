@@ -17,19 +17,27 @@ placeholder="Informar título"
 label="Título"
 />
 
-<Textarea 
-placeholder="Informe o conteúdo da mensagem"
+<Input 
+type="text"
 v-model="content"
+placeholder="Informar conteúdo"
 label="Conteúdo"
 />
-
+<!--<Textarea 
+placeholder="Informe o conteúdo da mensagem"
+v-model="content"
+type="text"
+label="Conteúdo"
+/>
+-->
 <Button 
  criarModelo="Adicionar modelo"
  />
 
  <Button 
- criarModelo="Acessar modelos"
+ criarModelo="Acessar modelos" to="#"
  />
+
 </form>
 <br/>
 
@@ -55,7 +63,7 @@ export default{
         return{
             canal:'',
             name:'',
-            content:'',
+            content:''
         }
     },
     methods:{
@@ -70,7 +78,7 @@ export default{
             const data={
                 canal:this.canal,
                 name:this.name,
-                content:this.content,
+                content:this.content
             }
             //console.log("teste modelo: 2", data)
             const ModeloJson=JSON.stringify(data);
@@ -85,9 +93,12 @@ export default{
             this.canal="";
             this.name="";
             this.content="";
-         //console.log("teste 3", res)
+        // console.log("teste 3", res)
         }
 
+    }, 
+    mounted(){
+        this.getModeloForm();
     }
 
 }

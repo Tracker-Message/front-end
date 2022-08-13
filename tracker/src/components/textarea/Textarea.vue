@@ -1,29 +1,32 @@
 <template>
-<form class="mb-3" >
-<div class="col-md-11,5">
 
-   <label>{{label}}</label>
-   <textarea 
+<div >
+
+   <label>{{label}}  </label>
+   <input
    class="form-control" 
-   aria-label="textarea" 
    :type="type"
-   rows="4">
-   {{content}}
-   </textarea>
-
-   
+   :placeholder="placeholder"
+   :value="Modelcontent" 
+   @input="$emit('update:Modelcontent', $event.target.value)"
+   />
+ 
 </div>
 
-</form>
+
 </template>
 <script>
 export default{
     name: 'Textarea',
     props:{
     label: String,
-    content:{
-      type:String,
+    placeholder:String,
+    type:String,
+    content:String
+    /*content:{
+      type:String,*/
     },
-    }
+    emits:['update:content']
+    
 }
 </script>

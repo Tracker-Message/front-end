@@ -4,12 +4,9 @@
     <div v-for="modelo in modelos" >
 <Card
 :canal="modelo.canal"
-:titulo="modelo.titulo"
-:conteudo="modelo.conteudo"
-:ordem="modelo.ordem"
-:intervalo="modelo.intervalor"
-@click="deleteDado(modelo.id)"
-@change="editarDado($event,modelo.id)"
+:titulo="modelo.name"
+:conteudo="modelo.content"
+
 />
 
 </div>
@@ -27,13 +24,12 @@ export default{
     },
     data(){
         return{
-            modelos:""
-           
+            modelos:""          
         }
     },
     methods:{
         async getMyModelos(){
-        const req=await fetch("http://localhost:3000/modelos")
+        const req=await fetch("http://localhost:3000/modelos");
         const data=await req.json();
         this.modelos=data;
         //resgatar

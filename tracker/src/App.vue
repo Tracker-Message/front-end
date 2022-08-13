@@ -31,5 +31,5 @@ import { mapActions, storeToRefs } from 'pinia';
 </template>
 
 <style>
- 
+
 </style>
