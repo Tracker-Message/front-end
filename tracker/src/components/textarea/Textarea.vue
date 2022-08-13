@@ -6,11 +6,10 @@
    <textarea 
    class="form-control" 
    aria-label="textarea" 
-   rows="4" 
-   :placeholder="placeholder"
-   :value="modelConteudo"
-   @input="modelConteudo= $event.target.value"
-   ></textarea>
+   :type="type"
+   rows="4">
+   {{content}}
+   </textarea>
 
    
 </div>
@@ -21,11 +20,10 @@
 export default{
     name: 'Textarea',
     props:{
-   label: String,
-   placeholder: String,
-   type:String,
-   modelConteudo:String
+    label: String,
+    content:{
+      type:String,
     },
-  // emits:['update:modelConteudo']
+    }
 }
 </script>

@@ -7,7 +7,7 @@ import { RouterLink, RouterView} from 'vue-router';
 <div>
      <nav class="navbar navbar-dark bg-dark">
   <RouterLink to="./Canal">Canal</RouterLink>
-       
+  <RouterLink to="./MyCanais">Meus canais</RouterLink>
   <RouterLink to="./MalaDireta">Mala Direta</RouterLink>
   
   <RouterLink to="./Modelo">Modelos</RouterLink>

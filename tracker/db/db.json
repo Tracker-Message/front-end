@@ -1,49 +1,23 @@
 {
-  "userAuth": [
-    {
-      "email": "email@email.com",
-      "senha": "12345",
-      "id": 1
-    }
-  ],
+  "autenticar": [],
   "modelos": [
     {
-      "canal": "sms",
-      "titulo": "pagamento",
-      "conteudo": "",
-      "ordem": "3",
-      "intervalor": "1",
+      "canal": "",
+      "name": "iptu",
+      "content": "",
       "id": 1
     }
   ],
-  "canalMsg": [
+  "canais": [
     {
-      "canalMsg": "email",
+      "name": "sms",
       "id": 1
     },
     {
-      "canalMsg": "whatsapp",
+      "name": "email",
       "id": 2
-    },
-    {
-      "canalMsg": "ligaçaõ",
-      "id": 3
-    },
-    {
-      "canalMsg": "chamada de video",
-      "id": 4
-    },
-    {
-      "canalMsg": "torpedo",
-      "id": 5
-    },
-    {
-      "canalMsg": "msg",
-      "id": 6
-    },
-    {
-      "canalMsg": "torpedo",
-      "id": 7
     }
-  ]
+  ],
+  "mala-direta": [],
+  "status": []
 }
