@@ -4,7 +4,7 @@
 <label>{{labelSelect}}</label>
 
 <select class="form-select" size="1" aria-label="multiple select">
-    <option v-for="array in arrayCanal" >{{array}}</option>
+    <option>{{arrayItens}}</option>
     
 </select>
 </div>
@@ -16,11 +16,14 @@
 export default{
     name: 'Select',
     props: {
-        labelSelect:String
+    arrayItens:{
+        type:Object
+    },
+    labelSelect:String
     },
    data(){
         return{
-    arrayCanal: ["sms", "email", "Whatsaap"]
+   
         }
       
         

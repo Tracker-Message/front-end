@@ -3,7 +3,7 @@
     <h2>Estes são os modelos de mensagens criados</h2>
     <div v-for="modelo in modelos" >
 <Card
-:canal="modelo.canal"
+:canal="modelo.canais"
 :titulo="modelo.name"
 :conteudo="modelo.content"
 

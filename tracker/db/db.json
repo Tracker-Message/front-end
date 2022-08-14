@@ -2,13 +2,15 @@
   "autenticar": [],
   "modelos": [
     {
-      "name": "iptu",
-      "content": "esta chegando a data de pagamento",
+      "name": "texte",
+      "content": "tetet",
+      "canais": "Sms",
       "id": 1
     },
     {
-      "name": "mei",
-      "content": "precisa regugarizar cadaastro",
+      "name": "texte",
+      "content": "te",
+      "canais": "Sms",
       "id": 2
     }
   ],
@@ -16,6 +18,10 @@
     {
       "name": "sms",
       "id": 1
+    },
+    {
+      "name": "whats",
+      "id": 2
     }
   ],
   "mala-direta": [],

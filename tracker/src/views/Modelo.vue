@@ -6,8 +6,19 @@
 <h2>Crie um modelo de mensagem</h2>
 
 <form action="" v-on:submit.prevent="ModeloForm">
-<select>
-    <option>Sms</option>
+
+<select 
+class="form-select" size="1" 
+aria-label="multiple select" 
+name="canais"
+
+>
+    <option value="">Selecione</option>
+    <option v-for="canal in canais" 
+    :key="canal.id"
+     :value="canal.name" >
+    {{canal.name}}
+    </option>
 </select>
 
 <Input 
@@ -23,13 +34,7 @@ v-model="content"
 placeholder="Informar conteúdo"
 label="Conteúdo"
 />
-<!--<Textarea 
-placeholder="Informe o conteúdo da mensagem"
-v-model="content"
-type="text"
-label="Conteúdo"
-/>
--->
+
 <Button 
  criarModelo="Adicionar modelo"
  />
@@ -63,22 +68,38 @@ export default{
         return{
             canal:'',
             name:'',
-            content:''
+            content:'',
+            canais:[]
         }
     },
     methods:{
-        async getModeloForm(){
+        //metodo
+    /*    async getModeloForm(){
         const req=await fetch("http://localhost:3000/modelos")
         const data=await req.json();
-        this.canal=data.canal;
         this.name=data.name;
-        this.content=data.content;    
+        this.content=data.content;  
+        
+        //resgatar array de canais cadastrados    
+
+        },*/
+        //metodo get
+        async getCanaisCadastrados(){
+        const req=await fetch("http://localhost:3000/canais")
+        const data=await req.json();
+        this.canais=data;
+        //console.log(canais)
+       // console.log()
+       
         },
+    //metodo post
         async ModeloForm(){
             const data={
-                canal:this.canal,
+               // canal:this.canal,
                 name:this.name,
-                content:this.content
+                content:this.content,
+                //array
+                canais:"Sms"
             }
             //console.log("teste modelo: 2", data)
             const ModeloJson=JSON.stringify(data);
@@ -89,16 +110,19 @@ export default{
             })
             //falta mais
             const res = await req.json()
+            //mensagem caso queira
             //limpando dados do form
-            this.canal="";
+           // this.canal="";
             this.name="";
             this.content="";
-        // console.log("teste 3", res)
+            this.canais="";
+            console.log("teste 3", res)
         }
 
     }, 
     mounted(){
-        this.getModeloForm();
+        //this.getModeloForm();
+       this.getCanaisCadastrados()
     }
 
 }
