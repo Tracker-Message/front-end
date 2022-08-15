@@ -10,13 +10,12 @@
 <select 
 class="form-select" size="1" 
 aria-label="multiple select" 
-name="canais"
-
+name="canal"
+v-model="canal" id="canal"
 >
     <option value="">Selecione</option>
     <option v-for="canal in canais" 
-    :key="canal.id"
-     :value="canal.name" >
+    :key="canal.id" :value="canal.name">
     {{canal.name}}
     </option>
 </select>
@@ -66,9 +65,9 @@ export default{
     },
     data(){
         return{
-            canal:'',
-            name:'',
-            content:'',
+            canal:null,
+            name:null,
+            content:null,
             canais:[]
         }
     },
@@ -88,18 +87,20 @@ export default{
         const req=await fetch("http://localhost:3000/canais")
         const data=await req.json();
         this.canais=data;
-        //console.log(canais)
+      
        // console.log()
-       
+       console.log("teste 1",this.canais)
         },
+          
     //metodo post
         async ModeloForm(){
             const data={
-               // canal:this.canal,
-                name:this.name,
-                content:this.content,
+               canal:this.canal,
+               name:this.name,
+               content:this.content
+
                 //array
-                canais:"Sms"
+                //canais:"Sms"
             }
             //console.log("teste modelo: 2", data)
             const ModeloJson=JSON.stringify(data);
@@ -112,11 +113,11 @@ export default{
             const res = await req.json()
             //mensagem caso queira
             //limpando dados do form
-           // this.canal="";
+            //this.canal="";
             this.name="";
             this.content="";
             this.canais="";
-            console.log("teste 3", res)
+            console.log("teste 2", res)
         }
 
     }, 

@@ -2,16 +2,22 @@
   "autenticar": [],
   "modelos": [
     {
+      "canal": null,
       "name": "texte",
-      "content": "tetet",
-      "canais": "Sms",
+      "content": "tetxte",
       "id": 1
     },
     {
-      "name": "texte",
-      "content": "te",
-      "canais": "Sms",
+      "canal": "sms",
+      "name": "iptu",
+      "content": "atraso",
       "id": 2
+    },
+    {
+      "canal": "whats",
+      "name": "mei",
+      "content": "precisa pagar",
+      "id": 3
     }
   ],
   "canais": [
