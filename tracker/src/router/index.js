@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import Modelo from '../views/Modelo.vue'
 import Home from '../views/Home.vue'
 import Canal from '../views/Canal.vue'
+import Unidade from '../views/Unidade.vue'
 import MalaDireta from '../views/MalaDireta.vue'
 import Menu from '../views/Menu.vue'
 //conteúdo principal
@@ -26,6 +27,11 @@ const router = createRouter({
       path: '/Canal',
       name: 'Canal',
       component: Canal
+    },
+    {
+      path: '/Unidade',
+      name: 'Unidade',
+      component: Unidade
     },
     {
       path: '/MalaDireta',

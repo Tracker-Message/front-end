@@ -8,10 +8,10 @@
 
 <Table :name="canal.name"/>
 
-<input />
-<p  v-show="editarInput">texte</p>
+<input v-show="editarInput"/>
 
-<button class="btn btn-primary" @click="editarInput">Editar</button>
+
+<button class="btn btn-primary" @click="ExibirInputEdit">Editar//Salvar</button>
 
 <button class="btn btn-danger" @click="deleteDado(canal.id)">Deletar</button>
 
@@ -79,8 +79,8 @@ data(){
             this.name="";
         },
         //diretiva
-        editarInput(){
-            this.editarInput=this.editarInput;
+        ExibirInputEdit(){
+            this.editarInput=!this.editarInput;
         },
 },
 mounted(){

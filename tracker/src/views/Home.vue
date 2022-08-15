@@ -10,8 +10,13 @@
           <Input type="text" label="Informe o email"
            placeholder="Informe o Email" v-model="email"/>
           <Input type="password" placeholder="Informe a senha" label="Informe a senha" v-model="senha"/>
-
+<!--
           <Button criarModelo="Logar"/>
+          -->
+<a href="Canal" class="btn btn-primary" type="submit" value="Submit">
+Logar
+</a>
+
 
           <div class="alert alert-danger" v-for="error in errors">
             {{ error }}

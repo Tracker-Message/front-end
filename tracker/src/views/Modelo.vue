@@ -20,6 +20,11 @@ v-model="canal" id="canal"
     </option>
 </select>
 -->
+
+<select>
+    <option>Este é o modelo 1</option>
+      <option>Este é o modelo 2</option>
+</select>
 <Input 
 type="text"
 v-model="name"
@@ -38,9 +43,12 @@ label="Conteúdo"
  criarModelo="Adicionar modelo"
  />
 
- <Button 
- criarModelo="Acessar modelos" to="#"
- />
+
+<a href="MyModelos" class="btn btn-primary" type="submit" value="Submit">
+    Acessar modelos
+</a>
+
+
 
 </form>
 <br/>

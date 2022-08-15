@@ -16,10 +16,10 @@ import { mapActions, storeToRefs } from 'pinia';
 <!-- <RouterLink to="./Home">Home/Login</RouterLink>
      <RouterLink  to="./">Page</RouterLink> 
  
-
+<RouterLink  to="./Menu">Menu</RouterLink>
   <RouterView/>
 --> 
- <RouterLink  to="./Menu">Menu</RouterLink> 
+  
  
 <RouterView/>
 
