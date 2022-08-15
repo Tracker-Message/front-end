@@ -6,10 +6,7 @@
     <h2>Titúlo:{{titulo}}</h2>
     <h3>Conteúdo:{{conteudo}}</h3>
     
-   
-    <a href="https://instagram" :click="editarDado" class="btn btn-primary">Editar</a>
-    <a href="https://facebook.com" :click="deleteDado" class="btn btn-danger">Excluir</a>
-    <a href="https://google.com" :click="usarDado" class="btn btn-success">Usar</a>
+    
 </div>
 
 </div>

@@ -18,8 +18,9 @@ label="Informe o canal"
 </div>
 
 <br/>
-<h2>Canais de mensagens cadastrados</h2>
+<h2 color="white">Canais de mensagens cadastrados</h2>
 <MyCanais/>
+
 </div>
 
 </form>
@@ -48,7 +49,7 @@ export default{
     methods:{
         //provavel isso é o jeto de pegar dados
         async getCanais(){
-            //const req=await fetch("http://homologacao.api.tracker.online.maceio.al.gov.br/v1/canais");
+           // const req=await fetch("http://homologacao.api.tracker.online.maceio.al.gov.br/v1/canais");
             const req=await fetch("http://localhost:3000/canais")
             const data=await req.json();
 
@@ -64,7 +65,7 @@ export default{
             //console.log("clicou")
            // console.log("teste 1", data)
             const CanalMsgJson=JSON.stringify(data);
-           //const req=await fetch("http://homologacao.api.tracker.online.maceio.al.gov.br/v1/canais",{
+          // const req=await fetch("http://homologacao.api.tracker.online.maceio.al.gov.br/v1/canais",{
             const req=await fetch("http://localhost:3000/canais",{
                 method:"POST",   
                 headers:{"Content-Type":"application/json"},
@@ -88,7 +89,6 @@ export default{
 
 .canal h1,h2, p{
     color: white;
-
 
 }
 </style>

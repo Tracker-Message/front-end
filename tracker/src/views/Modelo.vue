@@ -6,7 +6,7 @@
 <h2>Crie um modelo de mensagem</h2>
 
 <form action="" v-on:submit.prevent="ModeloForm">
-
+<!--
 <select 
 class="form-select" size="1" 
 aria-label="multiple select" 
@@ -19,7 +19,7 @@ v-model="canal" id="canal"
     {{canal.name}}
     </option>
 </select>
-
+-->
 <Input 
 type="text"
 v-model="name"

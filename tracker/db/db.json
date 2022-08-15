@@ -2,32 +2,32 @@
   "autenticar": [],
   "modelos": [
     {
-      "canal": null,
-      "name": "texte",
-      "content": "tetxte",
+      "name": "ttt",
+      "content": "ttt",
       "id": 1
     },
     {
-      "canal": "sms",
-      "name": "iptu",
-      "content": "atraso",
+      "name": "text",
+      "content": "tt3et",
       "id": 2
-    },
-    {
-      "canal": "whats",
-      "name": "mei",
-      "content": "precisa pagar",
-      "id": 3
     }
   ],
   "canais": [
     {
-      "name": "sms",
-      "id": 1
+      "name": "",
+      "id": 2
     },
     {
-      "name": "whats",
-      "id": 2
+      "name": "sms",
+      "id": 3
+    },
+    {
+      "name": "contato pessoal",
+      "id": 4
+    },
+    {
+      "name": "tets",
+      "id": 5
     }
   ],
   "mala-direta": [],
