@@ -25,6 +25,11 @@ v-model="canal" id="canal"
     <option>Este é o modelo 1</option>
       <option>Este é o modelo 2</option>
 </select>
+
+<button class="btn btn-primary" @click="ExibirCadastroModelo">Criar</button>
+
+<div v-show="CriarModelo">
+
 <Input 
 type="text"
 v-model="name"
@@ -43,13 +48,18 @@ label="Conteúdo"
  criarModelo="Adicionar modelo"
  />
 
-
+</div>
 <a href="MyModelos" class="btn btn-primary" type="submit" value="Submit">
     Acessar modelos
 </a>
 
+<a href="/Unidade" class="btn btn-warning" type="submit" value="Submit">
+    Voltar
+</a>
 
-
+<a href="/Unidade" class="btn btn-success" type="submit" value="Submit">
+    Seguir
+</a>
 </form>
 <br/>
 
@@ -76,7 +86,8 @@ export default{
             canal:null,
             name:null,
             content:null,
-            canais:[]
+            canais:[],
+            CriarModelo:false
         }
     },
     methods:{
@@ -126,6 +137,9 @@ export default{
             this.content="";
             this.canais="";
             console.log("teste 2", res)
+        },
+        ExibirCadastroModelo(){
+            this.CriarModelo=!this.CriarModelo;
         }
 
     }, 

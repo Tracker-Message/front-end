@@ -2,6 +2,8 @@ import { createRouter, createWebHistory } from 'vue-router'
 import Modelo from '../views/Modelo.vue'
 import Home from '../views/Home.vue'
 import Canal from '../views/Canal.vue'
+import Status from '../views/Status.vue'
+
 import Unidade from '../views/Unidade.vue'
 import MalaDireta from '../views/MalaDireta.vue'
 import Menu from '../views/Menu.vue'
@@ -47,6 +49,11 @@ const router = createRouter({
       path: '/MyCanais',
       name: 'MyCanais',
       component: MyTable
+    },
+    {
+      path: '/Status',
+      name: 'Status',
+      component: Status
     },
   {
   path: '/Menu',

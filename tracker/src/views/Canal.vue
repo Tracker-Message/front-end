@@ -25,7 +25,12 @@ label="Informe o canal"
 </div>
 
 </form>
-
+<a href="/" class="btn btn-warning" type="submit" value="Submit">
+    Voltar
+</a>
+<a href="/Modelo" class="btn btn-success" type="submit" value="Submit">
+    Seguir
+</a>
 </template>
 
 <script>

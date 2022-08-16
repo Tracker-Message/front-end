@@ -10,6 +10,18 @@
       "name": "text",
       "content": "tt3et",
       "id": 2
+    },
+    {
+      "canal": null,
+      "name": null,
+      "content": null,
+      "id": 3
+    },
+    {
+      "canal": null,
+      "name": null,
+      "content": null,
+      "id": 4
     }
   ],
   "canais": [
@@ -26,6 +38,16 @@
       "id": 5
     }
   ],
-  "mala-direta": [],
+  "mala-direta": [
+    {
+      "name": "Semec",
+      "id": 1
+    },
+    {
+      "name": "Semge",
+      "id": 2
+    }
+  ],
   "status": []
+
 }
