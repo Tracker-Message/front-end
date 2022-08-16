@@ -64,6 +64,7 @@ export default{
            // const req=await fetch(`http://localhost:3000/modelos/${id}`,{
             method:"DELETE"
         })
+        
         const res=await req.json();
       
          this.getMyModelos();

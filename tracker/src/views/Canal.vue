@@ -49,7 +49,8 @@ export default{
     },
     data(){
         return{
-             name:''
+             name:'',
+             
         }
     },
     methods:{
@@ -71,9 +72,9 @@ export default{
             //console.log("clicou")
            // console.log("teste 1", data)
             const CanalMsgJson=JSON.stringify(data);
-          // const req=await fetch("http://homologacao.api.tracker.online.maceio.al.gov.br/v1/canais",{
-            const req=await fetch("http://localhost:3000/canais",{
-                method:"POST",   
+          const req=await fetch("http://homologacao.api.tracker.online.maceio.al.gov.br/v1/canais",{
+           // const req=await fetch("http://localhost:3000/canais",{
+                method:"POST" ,
                 headers:{"Content-Type":"application/json"},
                 body:CanalMsgJson
             });
@@ -85,9 +86,9 @@ export default{
         },
 
     },   
-   /* mounted(){     
+   mounted(){     
        this.getCanais();     
-    }*/
+    }
 }
 
 

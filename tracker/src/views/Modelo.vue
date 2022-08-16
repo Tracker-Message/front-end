@@ -71,7 +71,7 @@ label="Conteúdo"
     Acessar modelos
 </a>
 
-<a href="/Unidade" class="btn btn-warning" type="submit" value="Submit">
+<a href="/Canal" class="btn btn-warning" type="submit" value="Submit">
     Voltar
 </a>
 

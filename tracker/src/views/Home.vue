@@ -8,22 +8,23 @@
 
         <form action="" v-on:submit.prevent="checkForm">
           <Input type="text" 
-          label="Informe o email"
-           placeholder="Informe o Email"
+          label="Informe o nome"
+           placeholder="Informe o Nome"
             v-model="username"/>
           <Input type="password" 
           placeholder="Informe a senha" 
           label="Informe a senha"
            v-model="password"/>
 
-          <Button criarModelo="Logar" />
+          <Button  criarModelo="Logar" @click="PaginaProx" />
           
-<a href="Canal" class="btn btn-success" 
+
+<a href="Canal" v-show="Pagina"
+ class="btn btn-success" 
 type="submit" 
 value="Submit">
 Seguir
 </a>
-
 
           <div class="alert alert-danger" v-for="error in errors">
             {{ error }}
@@ -57,58 +58,41 @@ export default {
       username: '',
       password: '',
       errors: [],
+      Pagina:false
     }
   },
   methods: {
     //função de validação
    checkForm: function () {
-      // // limpar o array
+      // limpar o array
+      //this.username="testeee"
+      //this.password="teste"
+      this.errors = [];
+    /* if(this.username !="teste"){
+this.errors.push("Foi fornecido o nome está errado !");
+     }else if(!this.username){
+ this.errors.push("O nome precisa ser preenchido precisa ser informado!");
+     }
+*/
       
-     this.errors = [];
-      if (!this.username) {
-        this.errors.push("O nome precisa ser preenchido precisa ser informado!")
+    if(!this.username){
+        this.errors.push("O nome precisa ser preenchido precisa ser informado!");
       }
 
       if (!this.password) {
         this.errors.push("A senha precisa ser informado!")
-      } else if(this.password && !this.password=="teste"){
-         this.errors.push("A senha precisa ser informada com o login certo!")
       }
+
+      
       /*else{
         alert("logado com sucesso!")
       }*/
-     
-    },
-  //resgatando dados da api fake
-  /* async getUser(){
-        const req=await fetch("http://localhost:3000/autenticar")
-        const data=await req.json();
-
-      this.email=data.email;
-      this.senha=data.senha;
-      //console.log(data.email)
-      },
-      //enviando
-      async checkForm(){
-        console.log("teste 1")
-        const data={
-          email:this.email,
-          senha:this.senha
-        }
-        //console.log("teste 2",data)
-
-        const constJson=JSON.stringify(data);
-        const req=await fetch("http://localhost:3000/autenticar",{
-          method:"POST",
-          headers:{"Content-Type":"application/json"},
-          body:constJson
-        })
-        //falta mais
-        const res = await req.json()
-
-        //console.log("Teste 3",res)
-
-      }*/
+   
+    }, 
+     PaginaProx(){
+      this.Pagina=! this.Pagina;
+     }
+  
 
   },
   mounted(){

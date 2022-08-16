@@ -1,37 +1,28 @@
 <template>
 <div class="bg-dark" >
-<form>
+
+<form  action="">
 <h2>Status de rastreamento da mensagem</h2>
 
 <h2>Cadastrar</h2>
 
-<select name="name" >
-    <option>Mala 1</option>
-</select>
+<Input v-model="name" 
+placeholder="Digite o nome do status"/>
 
 <Button 
  criarModelo="Cadastrar"
  />
 
-<h2>Acesse o status das notificações</h2>
-<button class="btn btn-primary">
-    Enviados
-</button>
 
-<button class="btn btn-success">
-    Entregue
-    </button>
 
-<button class="btn btn-warning">
-    Lido
-</button>
-
-<button class="btn btn-danger">
-    Não entregue
-</button>
+<h2>Acesse o status das mensagens</h2>
+<div v-for="nameStatus in status" :key="nameStatus.id">
+<Table :name="nameStatus.name" />
+</div>
+</form>
 
 <!--Lista -->
-</form>
+
 <a href="/MalaDireta" class="btn btn-warning" type="submit" value="Submit">
     Voltar
 </a>
@@ -44,15 +35,35 @@
 </template>
 
 <script>
-   import Input from '../components/input/Input.vue';
+import Input from '../components/input/Input.vue';
 import Button from '../components/button/Button.vue';
+import Table from '../components/table/Table.vue';
 
 export default {
 
     name:'Status',
     components:{
-        Input,
-        Button
+    Input,
+    Button,
+    Table
+
+},
+    data(){
+        return {
+            name:'',
+            status:''
+        }
+    },
+    methods:{
+    async getStatus(){
+         const req=await fetch("http://homologacao.api.tracker.online.maceio.al.gov.br/v1/status")
+        const data=await req.json();
+        this.status=data;
     }
+},
+    mounted(){
+        this.getStatus();
+    }
+    
 }
 </script>
