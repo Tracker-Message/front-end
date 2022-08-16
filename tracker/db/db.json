@@ -2,8 +2,8 @@
   "autenticar": [],
   "modelos": [
     {
-      "name": "ttt",
-      "content": "ttt",
+      "name": "text",
+      "content": "conteudooo",
       "id": 1
     },
     {
@@ -12,42 +12,47 @@
       "id": 2
     },
     {
-      "canal": null,
-      "name": null,
-      "content": null,
+      "name": "texte modelo",
+      "content": "modelando mesmo",
       "id": 3
     },
     {
-      "canal": null,
-      "name": null,
-      "content": null,
+      "name": "informal",
+      "content": "precios que voce compareça a empresa",
       "id": 4
     }
   ],
   "canais": [
     {
       "name": "sms",
-      "id": 3
-    },
-    {
-      "name": "contato pessoal",
       "id": 4
-    },
-    {
-      "name": "tets",
-      "id": 5
     }
   ],
   "mala-direta": [
     {
-      "name": "Semec",
-      "id": 1
+      "template_id": "text",
+      "file": "C:\\fakepath\\semec.txt",
+      "interested_unit": "",
+      "id": 3
     },
     {
-      "name": "Semge",
-      "id": 2
+      "template_id": "texte modelo",
+      "file": "C:\\fakepath\\semec.txt",
+      "interested_unit": "",
+      "id": 4
+    },
+    {
+      "template_id": "texte modelo",
+      "file": "C:\\fakepath\\semec.txt",
+      "interested_unit": "",
+      "id": 5
+    },
+    {
+      "template_id": "texte modelo",
+      "file": "C:\\fakepath\\semec.txt",
+      "interested_unit": "",
+      "id": 6
     }
   ],
   "status": []
-
 }

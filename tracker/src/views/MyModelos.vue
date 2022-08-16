@@ -19,7 +19,9 @@
 <button class="btn btn-danger" @click="deleteDado(modelo.id)">Deletar</button>
 
 </form>
-
+<a href="/Modelo" class="btn btn-warning" type="submit" value="Submit">
+    Voltar
+</a>
 </div>
 
 <br/>
@@ -48,8 +50,8 @@ export default{
     },
     methods:{
         async getMyModelos(){
-       const req=await fetch("http://localhost:3000/modelos");
-       // const req=await fetch("http://homologacao.api.tracker.online.maceio.al.gov.br/v1/modelos")
+       //const req=await fetch("http://localhost:3000/modelos");
+        const req=await fetch("http://homologacao.api.tracker.online.maceio.al.gov.br/v1/modelos")
         const data=await req.json();
         this.modelos=data;
         //resgatar
@@ -58,7 +60,8 @@ export default{
         },
         //deletar
         async deleteDado(id){
-        const req=await fetch(`http://localhost:3000/modelos/${id}`,{
+        const req=await fetch(`http://homologacao.api.tracker.online.maceio.al.gov.br/v1/modelos/${id}`,{
+           // const req=await fetch(`http://localhost:3000/modelos/${id}`,{
             method:"DELETE"
         })
         const res=await req.json();
@@ -78,7 +81,8 @@ export default{
         console.log("teste 2", data)
           const dataJson=JSON.stringify(data);
            
-           const req=await fetch(`http://localhost:3000/modelos/${id}`,{
+          // const req=await fetch(`http://localhost:3000/modelos/${id}`,{
+            const req=await fetch(`http://homologacao.api.tracker.online.maceio.al.gov.br/v1/modelos/${id}`,{
             method:"PUT",
             headers: {"Content-type":"application/json"},
             body:dataJson

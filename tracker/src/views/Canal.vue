@@ -55,8 +55,8 @@ export default{
     methods:{
         //provavel isso é o jeto de pegar dados
         async getCanais(){
-           // const req=await fetch("http://homologacao.api.tracker.online.maceio.al.gov.br/v1/canais");
-            const req=await fetch("http://localhost:3000/canais")
+           const req=await fetch("http://homologacao.api.tracker.online.maceio.al.gov.br/v1/canais");
+           // const req=await fetch("http://localhost:3000/canais")
             const data=await req.json();
 
             this.name=data.name;
@@ -82,7 +82,8 @@ export default{
               //console.log("teste 2", res)
                //limpando
                this.name="";
-        }
+        },
+
     },   
    /* mounted(){     
        this.getCanais();     

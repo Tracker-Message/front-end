@@ -5,7 +5,7 @@
 
 <h2>Crie um modelo de mensagem</h2>
 
-<form action="" v-on:submit.prevent="ModeloForm">
+
 <!--
 <select 
 class="form-select" size="1" 
@@ -21,13 +21,27 @@ v-model="canal" id="canal"
 </select>
 -->
 
-<select>
-    <option>Este é o modelo 1</option>
-      <option>Este é o modelo 2</option>
+<select class="form-select" size="1" 
+aria-label="multiple select" >
+<option>Selecione o modelo</option>
+    <option v-for="modelo in modelos" :key="modelo.id" :value="modelo.name">
+    {{modelo.name}}
+    </option>
+      
 </select>
 
-<button class="btn btn-primary" @click="ExibirCadastroModelo">Criar</button>
+<div>
+<button class="btn btn-success">Selecionar modelo</button>
+</div>
 
+
+<div>
+<button class="btn btn-primary"
+ @click="ExibirCadastroModelo">Cadastrar modelo
+ </button>
+
+</div>
+<form action="" v-on:submit.prevent="ModeloForm">
 <div v-show="CriarModelo">
 
 <Input 
@@ -49,6 +63,10 @@ label="Conteúdo"
  />
 
 </div>
+</form>
+
+
+<div>
 <a href="MyModelos" class="btn btn-primary" type="submit" value="Submit">
     Acessar modelos
 </a>
@@ -60,7 +78,8 @@ label="Conteúdo"
 <a href="/Unidade" class="btn btn-success" type="submit" value="Submit">
     Seguir
 </a>
-</form>
+</div>
+
 <br/>
 
 </div>
@@ -83,26 +102,27 @@ export default{
     },
     data(){
         return{
-            canal:null,
             name:null,
             content:null,
-            canais:[],
+            modelos:[],
             CriarModelo:false
         }
     },
     methods:{
         //metodo
-    /*    async getModeloForm(){
-        const req=await fetch("http://localhost:3000/modelos")
+        async getModeloForm(){
+      //  const req=await fetch("http://localhost:3000/modelos")
+       const req=await fetch("http://homologacao.api.tracker.online.maceio.al.gov.br/v1/modelos")
         const data=await req.json();
-        this.name=data.name;
-        this.content=data.content;  
+        this.modelos=data;
+        //this.content=data.content;  
         
         //resgatar array de canais cadastrados    
 
-        },*/
+        },
         //metodo get
-        async getCanaisCadastrados(){
+        //talvezx seja desnecessario
+     /*   async getCanaisCadastrados(){
         const req=await fetch("http://localhost:3000/canais")
         const data=await req.json();
         this.canais=data;
@@ -110,33 +130,30 @@ export default{
        // console.log()
        console.log("teste 1",this.canais)
         },
-          
+          */
     //metodo post
         async ModeloForm(){
-            const data={
-               canal:this.canal,
+            const data={        
                name:this.name,
                content:this.content
-
-                //array
-                //canais:"Sms"
             }
             //console.log("teste modelo: 2", data)
             const ModeloJson=JSON.stringify(data);
-            const req=await fetch("http://localhost:3000/modelos",{
+           // const req=await fetch("http://localhost:3000/modelos",{
+          const req=await fetch("http://homologacao.api.tracker.online.maceio.al.gov.br/v1/canais",{
+
             method:"POST",
             headers:{"Content-Type":"application/json"},
             body:ModeloJson
             })
             //falta mais
             const res = await req.json()
-            //mensagem caso queira
-            //limpando dados do form
-            //this.canal="";
+           
+           // this.getModeloForm();
             this.name="";
             this.content="";
-            this.canais="";
-            console.log("teste 2", res)
+            
+            console.log("teste 2", res);
         },
         ExibirCadastroModelo(){
             this.CriarModelo=!this.CriarModelo;
@@ -144,8 +161,8 @@ export default{
 
     }, 
     mounted(){
-        //this.getModeloForm();
-       this.getCanaisCadastrados()
+        this.getModeloForm();
+       //this.getCanaisCadastrados()
     }
 
 }

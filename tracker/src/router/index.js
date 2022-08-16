@@ -9,9 +9,9 @@ import MalaDireta from '../views/MalaDireta.vue'
 import Menu from '../views/Menu.vue'
 //conteúdo principal
 import MyModelos from '../views/MyModelos.vue'
-
+import MyMala from '../views/MyMala.vue'
 //testes
-import MyTable from '../views/MyCanais.vue'
+import MyCanais from '../views/MyCanais.vue'
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -48,12 +48,17 @@ const router = createRouter({
     {
       path: '/MyCanais',
       name: 'MyCanais',
-      component: MyTable
+      component: MyCanais
     },
     {
       path: '/Status',
       name: 'Status',
       component: Status
+    },
+    {
+      path: '/MyMala',
+      name: 'MyMala',
+      component: MyMala
     },
   {
   path: '/Menu',

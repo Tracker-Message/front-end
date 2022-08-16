@@ -7,14 +7,21 @@
         <p>Tracker é um projeto para enviar mensagens para clientes</p>
 
         <form action="" v-on:submit.prevent="checkForm">
-          <Input type="text" label="Informe o email"
-           placeholder="Informe o Email" v-model="email"/>
-          <Input type="password" placeholder="Informe a senha" label="Informe a senha" v-model="senha"/>
-<!--
-          <Button criarModelo="Logar"/>
-          -->
-<a href="Canal" class="btn btn-primary" type="submit" value="Submit">
-Logar
+          <Input type="text" 
+          label="Informe o email"
+           placeholder="Informe o Email"
+            v-model="username"/>
+          <Input type="password" 
+          placeholder="Informe a senha" 
+          label="Informe a senha"
+           v-model="password"/>
+
+          <Button criarModelo="Logar" />
+          
+<a href="Canal" class="btn btn-success" 
+type="submit" 
+value="Submit">
+Seguir
 </a>
 
 
@@ -47,28 +54,34 @@ export default {
   },
   data() {
     return {
-      email: '',
-      senha: '',
-      errors: []
+      username: '',
+      password: '',
+      errors: [],
     }
   },
   methods: {
     //função de validação
-   /* checkForm: function () {
+   checkForm: function () {
       // // limpar o array
+      
      this.errors = [];
-      if (!this.email) {
-        this.errors.push("O email precisa ser informado!")
+      if (!this.username) {
+        this.errors.push("O nome precisa ser preenchido precisa ser informado!")
       }
 
-      if (!this.senha) {
+      if (!this.password) {
         this.errors.push("A senha precisa ser informado!")
-      }  
+      } else if(this.password && !this.password=="teste"){
+         this.errors.push("A senha precisa ser informada com o login certo!")
+      }
+      /*else{
+        alert("logado com sucesso!")
+      }*/
      
-    },*/
+    },
   //resgatando dados da api fake
-   async getUser(){
-        const req=await fetch("http://localhost:3000/userAuth")
+  /* async getUser(){
+        const req=await fetch("http://localhost:3000/autenticar")
         const data=await req.json();
 
       this.email=data.email;
@@ -85,7 +98,7 @@ export default {
         //console.log("teste 2",data)
 
         const constJson=JSON.stringify(data);
-        const req=await fetch("http://localhost:3000/userAuth",{
+        const req=await fetch("http://localhost:3000/autenticar",{
           method:"POST",
           headers:{"Content-Type":"application/json"},
           body:constJson
@@ -95,11 +108,11 @@ export default {
 
         //console.log("Teste 3",res)
 
-      }
+      }*/
 
   },
   mounted(){
-    this.getUser();
+   // this.getUser();
 
   }
 }
