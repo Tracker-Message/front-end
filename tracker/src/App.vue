@@ -1,7 +1,7 @@
 <script setup >
 import {ref} from 'vue'
 import { RouterLink, RouterView} from 'vue-router'
-import Home from './views/Home.vue';
+import Login from './views/login/Login.vue';
 //importando
 import {userStore} from './stores/user'
 import { mapActions, storeToRefs } from 'pinia';
@@ -20,7 +20,7 @@ import { mapActions, storeToRefs } from 'pinia';
   <RouterView/>
 --> 
   
- 
+
 <RouterView/>
 
 </nav>

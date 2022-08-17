@@ -1,9 +1,9 @@
 <template>
-<div>
+<div class="bg-dark">
    
     <h2>Estes são os modelos de mensagens criados</h2>
     <div>
-     <form  v-for="modelo in modelos" :key="modelo.id"  action=""
+     <form v-for="modelo in modelos" :key="modelo.id" action=""
   v-on:submit.prevent="EditForm">
 
 <Card
@@ -11,8 +11,8 @@
 :conteudo="modelo.content"
 />
 
-<Input  v-model="name"/>
-<Input  v-model="content"/>
+<Input  v-model="name" label="Escolha o titúlo"/>
+<Input  v-model="content" label="Escolha o conteúdo"/>
 
 <button class="btn btn-success" @click="EditForm($event, modelo.id)">Salvar</button>
 
@@ -31,8 +31,8 @@
 
 </template>
 <script>
-import Card from "../components/card/Card.vue";
-import Input from "../components/input/Input.vue"
+import Card from "../../components/card/Card.vue";
+import Input from "../../components/input/Input.vue"
 
 export default{
     name: 'MyModelos',
@@ -50,8 +50,8 @@ export default{
     },
     methods:{
         async getMyModelos(){
-       //const req=await fetch("http://localhost:3000/modelos");
-        const req=await fetch("http://homologacao.api.tracker.online.maceio.al.gov.br/v1/modelos")
+       const req=await fetch("http://localhost:3000/modelos");
+        //const req=await fetch("http://homologacao.api.tracker.online.maceio.al.gov.br/v1/modelos")
         const data=await req.json();
         this.modelos=data;
         //resgatar
@@ -60,8 +60,8 @@ export default{
         },
         //deletar
         async deleteDado(id){
-        const req=await fetch(`http://homologacao.api.tracker.online.maceio.al.gov.br/v1/modelos/${id}`,{
-           // const req=await fetch(`http://localhost:3000/modelos/${id}`,{
+       // const req=await fetch(`http://homologacao.api.tracker.online.maceio.al.gov.br/v1/modelos/${id}`,{
+         const req=await fetch(`http://localhost:3000/modelos/${id}`,{
             method:"DELETE"
         })
         
@@ -79,18 +79,18 @@ export default{
             content: this.content
         }
     
-        console.log("teste 2", data)
-          const dataJson=JSON.stringify(data);
+        //console.log("teste 2", data)
+        const dataJson=JSON.stringify(data);
            
-          // const req=await fetch(`http://localhost:3000/modelos/${id}`,{
-            const req=await fetch(`http://homologacao.api.tracker.online.maceio.al.gov.br/v1/modelos/${id}`,{
+          const req=await fetch(`http://localhost:3000/modelos/${id}`,{
+           // const req=await fetch(`http://homologacao.api.tracker.online.maceio.al.gov.br/v1/modelos/${id}`,{
             method:"PUT",
             headers: {"Content-type":"application/json"},
             body:dataJson
         });
         
         const res=await req.json();
-        console.log("atualizando 1",res)
+        //console.log("atualizando 1",res)
             this.getMyModelos();
             this.name="";
             this.content="";

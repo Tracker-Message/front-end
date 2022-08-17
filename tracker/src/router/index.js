@@ -1,17 +1,17 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import Modelo from '../views/Modelo.vue'
-import Home from '../views/Home.vue'
-import Canal from '../views/Canal.vue'
-import Status from '../views/Status.vue'
+import Modelo from '../views/modelo//Modelo.vue'
+import Home from '../views/login/Login.vue'
+import Canal from '../views/canal/Canal.vue'
+import Status from '../views/status/Status.vue'
 
-import Unidade from '../views/Unidade.vue'
-import MalaDireta from '../views/MalaDireta.vue'
+import Unidade from '../views/unidade//Unidade.vue'
+import MalaDireta from '../views/maladireta//MalaDireta.vue'
 import Menu from '../views/Menu.vue'
 //conteúdo principal
-import MyModelos from '../views/MyModelos.vue'
-import MyMala from '../views/MyMala.vue'
+import MyModelos from '../views/modelo/MyModelos.vue'
+import MyMala from '../views/maladireta/MyMala.vue'
 //testes
-import MyCanais from '../views/MyCanais.vue'
+import MyCanais from '../views/canal/MyCanais.vue'
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [

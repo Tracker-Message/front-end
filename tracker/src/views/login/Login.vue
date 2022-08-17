@@ -9,8 +9,8 @@
         <form action="" v-on:submit.prevent="checkForm">
           <Input type="text" 
           label="Informe o nome"
-           placeholder="Informe o Nome"
-            v-model="username"/>
+          placeholder="Informe o Nome"
+          v-model="username"/>
           <Input type="password" 
           placeholder="Informe a senha" 
           label="Informe a senha"
@@ -40,9 +40,9 @@ Seguir
 
 <script>
 //import TheWelcome from '@/components/TheWelcome.vue'
-import Input from '../components/input/Input.vue';
-import Button from '../components/button/Button.vue';
-import navbar from '../navbar/navbar.vue';
+import Input from '../../components/input/Input.vue';
+import Button from '../../components/button/Button.vue';
+import navbar from '../../navbar/navbar.vue';
 //import Menu from './Menu.vue'
 
 
@@ -62,25 +62,31 @@ export default {
     }
   },
   methods: {
+    async getLogin(){
+      const req=await fetch("http://localhost:3000/autenticar");
+      const data=await req.json();
+      this.login=data;
+      
+      console.log(this.login)
+      
+
+    },
+    
     //função de validação
    checkForm: function () {
       // limpar o array
       //this.username="testeee"
       //this.password="teste"
       this.errors = [];
-    /* if(this.username !="teste"){
-this.errors.push("Foi fornecido o nome está errado !");
-     }else if(!this.username){
- this.errors.push("O nome precisa ser preenchido precisa ser informado!");
-     }
-*/
+
       
     if(!this.username){
-        this.errors.push("O nome precisa ser preenchido precisa ser informado!");
+        this.errors.push("O nome precisa ser informado!");
       }
 
       if (!this.password) {
         this.errors.push("A senha precisa ser informado!")
+        
       }
 
       
@@ -96,7 +102,8 @@ this.errors.push("Foi fornecido o nome está errado !");
 
   },
   mounted(){
-   // this.getUser();
+  
+   this.getLogin()
 
   }
 }

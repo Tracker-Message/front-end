@@ -6,21 +6,6 @@
 <h2>Crie um modelo de mensagem</h2>
 
 
-<!--
-<select 
-class="form-select" size="1" 
-aria-label="multiple select" 
-name="canal"
-v-model="canal" id="canal"
->
-    <option value="">Selecione</option>
-    <option v-for="canal in canais" 
-    :key="canal.id" :value="canal.name">
-    {{canal.name}}
-    </option>
-</select>
--->
-
 <select class="form-select" size="1" 
 aria-label="multiple select" >
 <option>Selecione o modelo</option>
@@ -87,10 +72,10 @@ label="Conteúdo"
 </template>
 
 <script>
-import Input from '../components/input/Input.vue';
-import Button from '../components/button/Button.vue';
-import Select from '../components/select/Select.vue';
-import Textarea from '../components/textarea/Textarea.vue';
+import Input from '../../components/input/Input.vue';
+import Button from '../../components/button/Button.vue';
+import Select from '../../components/select/Select.vue';
+import Textarea from '../../components/textarea/Textarea.vue';
 
 export default{
     name: "Modelo",
@@ -111,26 +96,15 @@ export default{
     methods:{
         //metodo
         async getModeloForm(){
-      //  const req=await fetch("http://localhost:3000/modelos")
-       const req=await fetch("http://homologacao.api.tracker.online.maceio.al.gov.br/v1/modelos")
+       const req=await fetch("http://localhost:3000/modelos")
+       //const req=await fetch("http://homologacao.api.tracker.online.maceio.al.gov.br/v1/modelos")
         const data=await req.json();
         this.modelos=data;
         //this.content=data.content;  
         
-        //resgatar array de canais cadastrados    
-
         },
-        //metodo get
-        //talvezx seja desnecessario
-     /*   async getCanaisCadastrados(){
-        const req=await fetch("http://localhost:3000/canais")
-        const data=await req.json();
-        this.canais=data;
-      
-       // console.log()
-       console.log("teste 1",this.canais)
-        },
-          */
+     
+          
     //metodo post
         async ModeloForm(){
             const data={        
@@ -138,9 +112,9 @@ export default{
                content:this.content
             }
             //console.log("teste modelo: 2", data)
-            const ModeloJson=JSON.stringify(data);
-           // const req=await fetch("http://localhost:3000/modelos",{
-          const req=await fetch("http://homologacao.api.tracker.online.maceio.al.gov.br/v1/canais",{
+          const ModeloJson=JSON.stringify(data);
+           const req=await fetch("http://localhost:3000/modelos",{
+          //const req=await fetch("http://homologacao.api.tracker.online.maceio.al.gov.br/v1/canais",{
 
             method:"POST",
             headers:{"Content-Type":"application/json"},

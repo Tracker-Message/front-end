@@ -1,26 +1,25 @@
 <template>
-<div class="card">
-<div class="card-body">
-
-    <h2>Canal:{{canal}}</h2>
-    <h2>Titúlo:{{titulo}}</h2>
-    <h3>Conteúdo:{{conteudo}}</h3>
-    
-    
-</div>
+<div class="card bg-light mb-6"
+ style="max-width: 50rem;">
+<div class="card-header">
+  {{canal}}
+    {{titulo}}
+    </div>
+   
+    <div class="card-body">    
+    <h5 class="card-title">{{conteudo}}</h5> 
+    </div>
 
 </div>
 
 </template>
 
 <script>
-import Button from '../button/Button.vue';
+
 
 export default {
     name:'Card',
-    components:{
-    Button
-    },
+    
     props:{
         canal:{
             type:Object
@@ -37,8 +36,5 @@ export default {
 }
 </script>
 <style>
-h2, h3{
-    color:black;
-   
-}
+
 </style>

@@ -1,16 +1,11 @@
 {
-  "autenticar": [],
+  "autenticar": [
+    {
+      "username": "teste",
+      "password": "teste"
+    }
+  ],
   "modelos": [
-    {
-      "name": "text",
-      "content": "conteudooo",
-      "id": 1
-    },
-    {
-      "name": "text",
-      "content": "tt3et",
-      "id": 2
-    },
     {
       "name": "texte modelo",
       "content": "modelando mesmo",
@@ -25,7 +20,11 @@
   "canais": [
     {
       "name": "sms",
-      "id": 4
+      "id": 5
+    },
+    {
+      "name": "email",
+      "id": 6
     }
   ],
   "mala-direta": [
@@ -54,5 +53,10 @@
       "id": 6
     }
   ],
-  "status": []
+  "status": [
+    {
+      "name": "enviado",
+      "id": 1
+    }
+  ]
 }

@@ -1,3 +1,4 @@
+
 <template>
 
 <div class="mala_direta">
@@ -5,7 +6,7 @@
 
 <div class="bg-dark" >
 
-    <h2>Selecione o modeloe de mensagem</h2>
+    <h2>Selecione o modelo de mensagem</h2>
 
 
 <form action="" v-on:submit.prevent="Maladireta">  
@@ -47,26 +48,22 @@ criarModelo="Enviar notificacao"
 
 </form>
 
-<a href="/MyMala" class="btn btn-primary" type="submit" value="Submit">
-    Acessar envios
-</a>
-<a href="/Modelo" class="btn btn-warning" type="submit" value="Submit">
+
+<a href="/MalaDireta" class="btn btn-warning" type="submit" value="Submit">
     Voltar
 </a>
 
-<a href="/Status" class="btn btn-success" type="submit" value="Submit">
-    Seguir
-</a>
+
 </div>
 </div>
 
 </template>
 
 <script>
-import Input from '../components/input/Input.vue';
-import InputFile from '../components/input/InputFile.vue';
-import Button from '../components/button/Button.vue';
-import Select from '../components/select/Select.vue';
+import Input from '../../components/input/Input.vue';
+import InputFile from '../../components/input/InputFile.vue';
+import Button from '../../components/button/Button.vue';
+import Card from '../../components/card/Card.vue';
 //import Option from '../components/option/Option.vue';
 
 export default{
@@ -75,9 +72,7 @@ export default{
         Input,
         Button,
         InputFile,
-        Select,
-        Option
-
+        Card
     },
     data(){
         return{

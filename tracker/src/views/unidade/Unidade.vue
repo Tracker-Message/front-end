@@ -32,8 +32,8 @@ Selecionar
 </div>
 </template>
 <script>
-import Select from '../components/select/Select.vue';
-import Table from '../components/table/Table.vue';
+import Select from '../../components/select/Select.vue';
+import Table from '../../components/table/Table.vue';
 
 export default {
     name: "Unidade",
