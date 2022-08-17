@@ -13,12 +13,20 @@
 <Table :name="canal.name"/>
 
 <div v-show="editarInput">
-<Input v-model="name"
-v-show="editarInput" name="name"/>
+<Input
+type="text"
+ v-model="name"
+v-show="editarInput" 
+label="Informe o canal que voce quer mudar"
+/>
+<!--name="name">-->
+
 
 <button v-show="editarInput"
 class="btn btn-success"
- @click="EditForm($event, canal.id)">Salvar</button>
+ @click="EditForm($event,canal.id)">
+ Salvar
+ </button>
 
 
 <button class="btn btn-danger" @click="deleteDado(canal.id)">Deletar</button>
@@ -52,8 +60,8 @@ data(){
 }, 
     methods:{
         async getMyCanais(){
-         //const req=await fetch("http://homologacao.api.tracker.online.maceio.al.gov.br/v1/canais")
-        const req=await fetch("http://localhost:3000/canais");
+         const req=await fetch("http://homologacao.api.tracker.online.maceio.al.gov.br/v1/canais");
+        //const req=await fetch("http://localhost:3000/canais");
         
        // method:"GET",
         const data=await req.json();
@@ -61,30 +69,34 @@ data(){
 
         },
         async deleteDado(id){
-     const req=await fetch(`http://localhost:3000/canais/${id}`,{
-   // const req=await fetch(`http://homologacao.api.tracker.online.maceio.al.gov.br/v1/canais/${id}`,{
+     //const req=await fetch(`http://localhost:3000/canais/${id}`,{
+        const req=await fetch(`http://homologacao.api.tracker.online.maceio.al.gov.br/v1/canais/${id}`,{
             method:"DELETE"
         })
         const res=await req.json();     
-         this.getMyCanais();       
+        // this.getMyCanais();       
         },
+
         async EditForm(event,id){     
-        const data={
+       /* const data={
             name:this.name    
-        }  
-         const dataJson=JSON.stringify(data);          
-          // const req=await fetch(`http://homologacao.api.tracker.online.maceio.al.gov.br/v1canais/${id}`,{
-            const req=await fetch(`http://localhost:3000/canais/${id}`,{
+        }  */
+        const idCanal=event.target.value;
+        console.log(idCanal)
+       // const dataJson=JSON.stringify(data);    
+       const dataJson=JSON.stringify({canais:idCanal});          
+       const req=await fetch(`http://homologacao.api.tracker.online.maceio.al.gov.br/v1/canais/${id}`,{
+            //const req=await fetch(`http://localhost:3000/canais/${id}`,{
             method:"PUT",
-            headers: {"Content-type":"application/json"},
+           // headers: {"Content-type":"application/json"},
             body:dataJson
         });
         
         const res=await req.json();
         
-        //console.log("atualizando canais",res)
+        console.log("atualizando canais",res)
         
-            this.getMyCanais();
+            //this.getMyCanais();
             this.name="";
         },
         //diretiva
@@ -98,7 +110,7 @@ data(){
         },
 },
 mounted(){
-    this.getMyCanais();
+  this.getMyCanais();
 }
 
 }

@@ -64,11 +64,11 @@ export default {
   methods: {
     async getLogin(){
       const req=await fetch("http://localhost:3000/autenticar");
+     // const req=await fetch("http://homologacao.api.tracker.online.maceio.al.gov.br/v1/autenticar")
       const data=await req.json();
       this.login=data;
       
-      console.log(this.login)
-      
+      console.log("teste 1", this.login);
 
     },
     
@@ -80,20 +80,23 @@ export default {
       this.errors = [];
 
       
-    if(!this.username){
+     if(!this.username){
         this.errors.push("O nome precisa ser informado!");
+      }else{
+
       }
 
       if (!this.password) {
         this.errors.push("A senha precisa ser informado!")
         
       }
-
+        
       
       /*else{
         alert("logado com sucesso!")
       }*/
    
+
     }, 
      PaginaProx(){
       this.Pagina=! this.Pagina;

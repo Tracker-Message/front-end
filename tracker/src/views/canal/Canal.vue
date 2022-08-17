@@ -57,15 +57,15 @@ export default{
     },
     methods:{
         //provavel isso é o jeto de pegar dados
-        async getCanais(){
-           //const req=await fetch("http://homologacao.api.tracker.online.maceio.al.gov.br/v1/canais");
-           const req=await fetch("http://localhost:3000/canais")
-            const data=await req.json();
+      /*   async getCanais(){
+          const req=await fetch("http://homologacao.api.tracker.online.maceio.al.gov.br/v1/canais");
+          // const req=await fetch("http://localhost:3000/canais")
+           const data=await req.json();
 
             this.name=data.name;
            
            //console.log("teste",this.name)
-        },
+        },*/
         //enviar
         async CanalMsgForm(){
             const data={
@@ -73,11 +73,11 @@ export default{
             }
             //console.log("clicou")
            // console.log("teste 1", data)
-            const CanalMsgJson=JSON.stringify(data);
-          //const req=await fetch("http://homologacao.api.tracker.online.maceio.al.gov.br/v1/canais",{
-            const req=await fetch("http://localhost:3000/canais",{
+          const CanalMsgJson=JSON.stringify(data);
+          const req=await fetch("http://homologacao.api.tracker.online.maceio.al.gov.br/v1/canais",{
+            //const req=await fetch("http://localhost:3000/canais",{
                 method:"POST" ,
-                headers:{"Content-Type":"application/json"},
+               // headers:{"Content-Type":"application/json"},
                 body:CanalMsgJson
             });
 
@@ -89,7 +89,8 @@ export default{
 
     },   
    mounted(){     
-       this.getCanais();     
+       //this.getCanais();     
+       this.CanalMsgForm()
     }
 }
 
