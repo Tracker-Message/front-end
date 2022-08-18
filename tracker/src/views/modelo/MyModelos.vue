@@ -1,24 +1,51 @@
 <template>
-<div class="bg-dark">
+<div class="bg-dark" >
    
     <h2>Estes são os modelos de mensagens criados</h2>
-    <div>
-     <form v-for="modelo in modelos" :key="modelo.id" action=""
-  v-on:submit.prevent="EditForm">
+    <div v-on:submit.prevent>
+<form 
+v-for="modelo in modelos" 
+:key="modelo.id"
+:value="modelo.id">
 
 <Card
 :titulo="modelo.name"
 :conteudo="modelo.content"
 />
 
-<Input  v-model="name" label="Escolha o titúlo"/>
-<Input  v-model="content" label="Escolha o conteúdo"/>
+<div 
+ @change="EditDados($event, modelo.id)">
 
-<button class="btn btn-success" @click="EditForm($event, modelo.id)">Salvar</button>
+<Input  
+v-model="modelo.name" 
+label="Escolha o titúlo" 
+type="text"
+/>
 
-<button class="btn btn-danger" @click="deleteDado(modelo.id)">Deletar</button>
+<Input 
+v-model="modelo.content"
+label="Escolha o conteúdo"
+type="text"
+/>
+
+<div>
+<button 
+class="btn btn-success" >
+
+Salvar
+</button>
+</div>
+
+</div>
+
+
+<div>
+<button class="btn btn-danger" 
+@click="deleteDado(modelo.id)">Deletar</button>
+</div>
 
 </form>
+
 <a href="/Modelo" class="btn btn-warning" type="submit" value="Submit">
     Voltar
 </a>
@@ -56,7 +83,7 @@ export default{
         this.modelos=data;
         //resgatar
        //apagando o modelo e atualizando
-     //  this.modelos=data;
+        //this.modelos=data;
         },
         //deletar
         async deleteDado(id){
@@ -72,16 +99,22 @@ export default{
         },
         //editar
        
-       async EditForm(event,id,){
+       async EditDados(event,id){
           
-        const data={
+     /*   const data={
             name:this.name,
             content: this.content
         }
-    
+    */
+   const modeloId=event.target.value;
+//const modeloName=event.target.value;
         //console.log("teste 2", data)
-        const dataJson=JSON.stringify(data);
-           
+        const dataJson=JSON.stringify(
+            {name:modeloId,
+            content:modeloId}
+            );
+            console.log("aquei tbm é um teste:",dataJson)
+          
           const req=await fetch(`http://localhost:3000/modelos/${id}`,{
            // const req=await fetch(`http://homologacao.api.tracker.online.maceio.al.gov.br/v1/modelos/${id}`,{
             method:"PUT",
@@ -90,10 +123,11 @@ export default{
         });
         
         const res=await req.json();
-        //console.log("atualizando 1",res)
+        console.log("atualizando 1",res)
             this.getMyModelos();
             this.name="";
             this.content="";
+          
         }
 
     },

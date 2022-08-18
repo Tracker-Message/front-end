@@ -6,8 +6,10 @@
 <button class="btn btn-primary" @click="ExibirInputEdit">
 {{TextoBotao}}
 </button>
-<form v-for="canal in canais" :key="canal.id" action=""
-  v-on:submit.prevent="EditForm">
+<form v-for="canal in canais" 
+:key="canal.id" action=""
+  v-on:submit.prevent="EditForm"
+   :value="canal.name">
 
 
 <Table :name="canal.name"/>
@@ -22,16 +24,19 @@ label="Informe o canal que voce quer mudar"
 <!--name="name">-->
 
 
-<button v-show="editarInput"
+<div>
+<button 
 class="btn btn-success"
  @click="EditForm($event,canal.id)">
  Salvar
  </button>
 
-
-<button class="btn btn-danger" @click="deleteDado(canal.id)">Deletar</button>
 </div>
-
+<div>
+<button class="btn btn-danger"
+ @click="deleteDado(canal.id)">Deletar</button>
+</div>
+</div>
 </form>
 
 </div>
@@ -60,8 +65,8 @@ data(){
 }, 
     methods:{
         async getMyCanais(){
-         const req=await fetch("http://homologacao.api.tracker.online.maceio.al.gov.br/v1/canais");
-        //const req=await fetch("http://localhost:3000/canais");
+         //const req=await fetch("http://homologacao.api.tracker.online.maceio.al.gov.br/v1/canais");
+        const req=await fetch("http://localhost:3000/canais");
         
        // method:"GET",
         const data=await req.json();
@@ -83,12 +88,12 @@ data(){
         }  */
         const idCanal=event.target.value;
         console.log(idCanal)
-       // const dataJson=JSON.stringify(data);    
-       const dataJson=JSON.stringify({canais:idCanal});          
-       const req=await fetch(`http://homologacao.api.tracker.online.maceio.al.gov.br/v1/canais/${id}`,{
-            //const req=await fetch(`http://localhost:3000/canais/${id}`,{
+       //const dataJson=JSON.stringify(data);    
+      const dataJson=JSON.stringify({canais:idCanal});          
+      // const req=await fetch(`http://homologacao.api.tracker.online.maceio.al.gov.br/v1/canais/${id}`,{
+            const req=await fetch(`http://localhost:3000/canais/${id}`,{
             method:"PUT",
-           // headers: {"Content-type":"application/json"},
+            headers: {"Content-type":"application/json"},
             body:dataJson
         });
         
