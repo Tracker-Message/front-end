@@ -8,7 +8,7 @@
 </button>
 
 <form  action="" 
-v-on:submit.prevent="FormStatus">
+v-on:submit.prevent="FormStatus" >
 
 <h2>Cadastrar</h2>
 
@@ -19,27 +19,45 @@ placeholder="Digite o nome do status"/>
 <Button 
  criarModelo="Cadastrar"
  />
+
 </form>
  <h2>Estes são os status das mensagens</h2>
-
+<form v-on:submit.prevent>
  <div v-for="nameStatus in status" 
  :key="nameStatus.id" 
- :value="nameStatus.name">
+ :value="nameStatus.id">
+
+<div @change="EditStatus($event, nameStatus.id)">
 
 <Table :name="nameStatus.name" />
+
 <div v-show="EditarStatus">
-<button class="btn btn-success" 
-@click="EditForm($event, nameStatus.id)">
+
+<input label="Nome do Status" 
+:value="nameStatus.name" 
+type="text"
+/>
+
+<button class="btn btn-success" >
 Salvar
 </button>
-|
+
+
+<div>
 <button class="btn btn-danger"
  @click="deleteDado(nameStatus.id)">
 Deletar
 </button>
+
 </div>
 </div>
 
+
+</div>
+
+</div>
+
+</form>
 <!--Lista -->
 
 <a href="/MalaDireta" class="btn btn-warning" type="submit" value="Submit">
@@ -57,6 +75,7 @@ Deletar
 import Input from '../../components/input/Input.vue';
 import Button from '../../components/button/Button.vue';
 import Table from '../../components/table/Table.vue';
+
 
 export default {
 
@@ -77,11 +96,13 @@ export default {
     },
     methods:{
     async getStatus(){
-        //const req=await fetch("http://homologacao.api.tracker.online.maceio.al.gov.br/v1/status")
-        const req=await fetch("http://localhost:3000/status");
+       // const req=await fetch("http://homologacao.api.tracker.online.maceio.al.gov.br/v1/status")
+       const req=await fetch("http://localhost:3000/status");
         const data=await req.json();
         this.status=data;
-        console.log(this.status)
+        console.log("este é o get" ,this.status);
+
+
     },
      async deleteDado(id){
      const req=await fetch(`http://localhost:3000/status/${id}`,{
@@ -94,7 +115,15 @@ export default {
         },
 
         async FormStatus(){
-        const data={
+           // console.log(typeof this.status)
+           //pop
+/*let teste={id:100, name:'yte'}
+this.status.push(teste)*/
+/*for(const prop in this.status){
+    console.log(this.status[prop]["id"])
+}*/
+           // console.log(this.status)
+       const data={
             name:this.name
         }
         const ModeloJson=JSON.stringify(data);
@@ -106,9 +135,10 @@ export default {
             });
         
             const res = await req.json();
-           // this.getModeloForm();
+           this.getStatus();
+
             this.name="";
-            //console.log(res)
+            console.log(res)
             },
 
             ExibirEditor(){
@@ -120,6 +150,27 @@ export default {
             }
              this.getStatus();     
             },
+        async EditStatus(event, id){
+            const name=event.target.value;
+
+const dataJson=JSON.stringify({name});
+
+console.log("Estou aquio", name)
+console.log("Estou aquio", dataJson)
+
+const req=await fetch(`http://localhost:3000/status/${id}`,{
+method:"PUT",
+headers:{"Content-type":"application/json"},
+body:dataJson
+
+})
+  this.getStatus();
+
+const res =await req.json();
+console.log("teste",res )
+this.nama=""
+//alert("Esat funcionando")
+    }
 },
     mounted(){
         this.getStatus();

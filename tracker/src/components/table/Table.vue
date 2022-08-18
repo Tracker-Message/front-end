@@ -17,7 +17,7 @@ export default {
     name: 'Table',
     props:{
         name:{
-        type:Object
+        type:String
         }
     }
 }

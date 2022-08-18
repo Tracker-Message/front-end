@@ -2,46 +2,43 @@
 <div class="bg-dark" >
    
     <h2>Estes são os modelos de mensagens criados</h2>
-    <div v-on:submit.prevent>
-<form 
+  
+        
+<form v-on:submit.prevent="getMyModelos">
+
+<div
 v-for="modelo in modelos" 
 :key="modelo.id"
 :value="modelo.id">
+
+<div @change="EditDados($event, modelo.id)">
 
 <Card
 :titulo="modelo.name"
 :conteudo="modelo.content"
 />
 
-<div 
- @change="EditDados($event, modelo.id)">
 
 <Input  
-v-model="modelo.name" 
+:value="modelo.name" 
 label="Escolha o titúlo" 
 type="text"
 />
 
 <Input 
-v-model="modelo.content"
+:value="modelo.content"
 label="Escolha o conteúdo"
 type="text"
 />
 
-<div>
-<button 
-class="btn btn-success" >
 
-Salvar
-</button>
-</div>
-
-</div>
-
-
-<div>
 <button class="btn btn-danger" 
-@click="deleteDado(modelo.id)">Deletar</button>
+@click="deleteDado(modelo.id)">
+Deletar</button>
+
+
+</div>
+
 </div>
 
 </form>
@@ -54,12 +51,10 @@ Salvar
 <br/>
 
 
-</div>
-
 </template>
-<script>
+<script >
 import Card from "../../components/card/Card.vue";
-import Input from "../../components/input/Input.vue"
+import Input from "../../components/input/Input.vue";
 
 export default{
     name: 'MyModelos',
@@ -83,7 +78,7 @@ export default{
         this.modelos=data;
         //resgatar
        //apagando o modelo e atualizando
-        //this.modelos=data;
+        console.log(this.modelos)
         },
         //deletar
         async deleteDado(id){
@@ -100,18 +95,13 @@ export default{
         //editar
        
        async EditDados(event,id){
-          
-     /*   const data={
-            name:this.name,
-            content: this.content
-        }
-    */
-   const modeloId=event.target.value;
+        const name=event.target.value;
+    const content=event.target.value;
 //const modeloName=event.target.value;
         //console.log("teste 2", data)
         const dataJson=JSON.stringify(
-            {name:modeloId,
-            content:modeloId}
+            {name,
+            content}
             );
             console.log("aquei tbm é um teste:",dataJson)
           
@@ -121,22 +111,22 @@ export default{
             headers: {"Content-type":"application/json"},
             body:dataJson
         });
-        
+        this.getMyModelos();
         const res=await req.json();
         console.log("atualizando 1",res)
-            this.getMyModelos();
+            
             this.name="";
             this.content="";
-          
+         // alert("Salvo com sucesso!")
         }
-
     },
     mounted(){
         this.getMyModelos();
     }
     
 }
-</script>
-<style>
 
+</script>
+
+<style>
 </style>

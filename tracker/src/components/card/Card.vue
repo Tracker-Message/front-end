@@ -2,7 +2,6 @@
 <div class="card bg-light mb-6"
  style="max-width: 50rem;">
 <div class="card-header">
-  {{canal}}
     {{titulo}}
     </div>
    
@@ -21,18 +20,9 @@ export default {
     name:'Card',
     
     props:{
-        canal:{
-            type:Object
-        },
-        titulo:{
-            type:Object
-        },
-        conteudo:{
-            type:Object
-        }
-
-    },
-    
+        titulo:String,
+        conteudo:String
+    }
 }
 </script>
 <style>

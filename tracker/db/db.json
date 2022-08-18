@@ -7,24 +7,24 @@
   ],
   "modelos": [
     {
-      "name": "meu testessxc",
-      "content": "meu testessxc",
-      "id": 5
+      "name": "hhh",
+      "content": "hhh",
+      "id": 2
     },
     {
-      "name": "titulo 2",
-      "content": "conteudo 2",
-      "id": 7
+      "name": null,
+      "content": "ggg",
+      "id": 3
     }
   ],
   "canais": [
     {
-      "name": "sms",
-      "id": 5
-    },
-    {
       "name": "email",
       "id": 6
+    },
+    {
+      "canais": "",
+      "id": 9
     }
   ],
   "mala-direta": [
@@ -55,8 +55,24 @@
   ],
   "status": [
     {
-      "name": "enviado",
-      "id": 1
+      "name": "",
+      "id": 7
+    },
+    {
+      "name": "tdteh",
+      "id": 8
+    },
+    {
+      "name": "tesd6fff",
+      "id": 9
+    },
+    {
+      "name": "666",
+      "id": 10
+    },
+    {
+      "name": "teste",
+      "id": 11
     }
   ]
 }

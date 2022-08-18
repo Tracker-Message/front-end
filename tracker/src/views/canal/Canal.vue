@@ -1,6 +1,6 @@
 <template>
 <div class="bg-dark" >
-<form action="" v-on:submit.prevent="CanalMsgForm">
+<form action="" v-on:submit.prevent="getCanais">
 
     <div class="canal">
     <h1>Crie um canal de mensagem</h1>
@@ -57,7 +57,7 @@ export default{
     },
     methods:{
         //provavel isso é o jeto de pegar dados
-      /*   async getCanais(){
+      async getCanais(){
           const req=await fetch("http://homologacao.api.tracker.online.maceio.al.gov.br/v1/canais");
           // const req=await fetch("http://localhost:3000/canais")
            const data=await req.json();
@@ -65,7 +65,7 @@ export default{
             this.name=data.name;
            
            //console.log("teste",this.name)
-        },*/
+        },
         //enviar
         async CanalMsgForm(){
             const data={
@@ -77,7 +77,7 @@ export default{
           //const req=await fetch("http://homologacao.api.tracker.online.maceio.al.gov.br/v1/canais",{
             const req=await fetch("http://localhost:3000/canais",{
                 method:"POST" ,
-               // headers:{"Content-Type":"application/json"},
+               headers:{"Content-Type":"application/json"},
                 body:CanalMsgJson
             });
 
@@ -85,12 +85,13 @@ export default{
               //console.log("teste 2", res)
                //limpando
                this.name="";
+               console.log("res canal",res)
         },
 
     },   
    mounted(){     
-       //this.getCanais();     
-       this.CanalMsgForm()
+       this.getCanais();     
+       //this.CanalMsgForm()
     }
 }
 

@@ -11,10 +11,10 @@
   v-on:submit.prevent="EditForm"
    :value="canal.name">
 
-
 <Table :name="canal.name"/>
 
 <div v-show="editarInput">
+
 <Input
 type="text"
  v-model="name"
@@ -23,19 +23,20 @@ label="Informe o canal que voce quer mudar"
 />
 <!--name="name">-->
 
-
 <div>
+    <!--
 <button 
-class="btn btn-success"
- @click="EditForm($event,canal.id)">
+class="btn btn-success">
  Salvar
  </button>
-
+-->
 </div>
 <div>
+
 <button class="btn btn-danger"
  @click="deleteDado(canal.id)">Deletar</button>
 </div>
+
 </div>
 </form>
 
@@ -57,6 +58,7 @@ data(){
         //nome da coluna
         canais:"",
         name:"",
+        content:"",
         //diretivas
         editarInput:false,
         TextoBotao:"Editar"
@@ -74,13 +76,15 @@ data(){
 
         },
         async deleteDado(id){
-     //const req=await fetch(`http://localhost:3000/canais/${id}`,{
-        const req=await fetch(`http://homologacao.api.tracker.online.maceio.al.gov.br/v1/canais/${id}`,{
+     const req=await fetch(`http://localhost:3000/canais/${id}`,{
+       // const req=await fetch(`http://homologacao.api.tracker.online.maceio.al.gov.br/v1/canais/${id}`,{
             method:"DELETE"
         })
         const res=await req.json();     
         // this.getMyCanais();       
         },
+
+
 
         async EditForm(event,id){     
        /* const data={
@@ -104,6 +108,9 @@ data(){
             //this.getMyCanais();
             this.name="";
         },
+
+
+        
         //diretiva
         ExibirInputEdit(){
             this.editarInput=!this.editarInput;

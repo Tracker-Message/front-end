@@ -31,7 +31,7 @@ aria-label="multiple select" >
 
 <Input 
 type="text"
-v-model="name"
+:value="name"
 placeholder="Informar título"
 label="Título"
 />
