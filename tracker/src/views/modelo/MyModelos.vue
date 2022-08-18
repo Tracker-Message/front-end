@@ -1,47 +1,6 @@
 <template>
 <div class="bg-dark" >
-   
-    <h2>Estes são os modelos de mensagens criados</h2>
   
-        
-<form v-on:submit.prevent="getMyModelos">
-
-<div
-v-for="modelo in modelos" 
-:key="modelo.id"
-:value="modelo.id">
-
-<div @change="EditDados($event, modelo.id)">
-
-<Card
-:titulo="modelo.name"
-:conteudo="modelo.content"
-/>
-
-
-<Input  
-:value="modelo.name" 
-label="Escolha o titúlo" 
-type="text"
-/>
-
-<Input 
-:value="modelo.content"
-label="Escolha o conteúdo"
-type="text"
-/>
-
-
-<button class="btn btn-danger" 
-@click="deleteDado(modelo.id)">
-Deletar</button>
-
-
-</div>
-
-</div>
-
-</form>
 
 <a href="/Modelo" class="btn btn-warning" type="submit" value="Submit">
     Voltar
@@ -49,6 +8,7 @@ Deletar</button>
 </div>
 
 <br/>
+
 
 
 </template>

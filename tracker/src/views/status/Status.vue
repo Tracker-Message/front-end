@@ -22,12 +22,15 @@ placeholder="Digite o nome do status"/>
 
 </form>
  <h2>Estes são os status das mensagens</h2>
-<form v-on:submit.prevent>
- <div v-for="nameStatus in status" 
+
+  <div v-for="nameStatus in status" 
  :key="nameStatus.id" 
  :value="nameStatus.id">
+<form @submit.prevent="getStatus" 
+v-on:change="EditStatus($event,nameStatus.id)">
 
-<div @change="EditStatus($event, nameStatus.id)">
+<!--@change="EditStatus( nameStatus.id)"-->
+<div >
 
 <Table :name="nameStatus.name" />
 
@@ -38,7 +41,8 @@ placeholder="Digite o nome do status"/>
 type="text"
 />
 
-<button class="btn btn-success" >
+<button class="btn btn-success" type="submit"
+ >
 Salvar
 </button>
 
@@ -54,10 +58,10 @@ Deletar
 
 
 </div>
-
+</form>
 </div>
 
-</form>
+
 <!--Lista -->
 
 <a href="/MalaDireta" class="btn btn-warning" type="submit" value="Submit">
