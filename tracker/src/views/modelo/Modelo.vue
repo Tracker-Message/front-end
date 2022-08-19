@@ -16,14 +16,12 @@
 
 
 <Input 
-type="text"
 v-model="name"
 placeholder="Informar título"
 label="Título"
 />
 
 <Input 
-type="text"
 v-model="content"
 placeholder="Informar conteúdo"
 label="Conteúdo"
@@ -34,23 +32,25 @@ label="Conteúdo"
  />
 
 <div v-show="CriarModelo">
+
 </div>
 </form>
  
     <h2>Estes são os modelos de mensagens criados</h2>
   
-<div
-v-for="modelo in modelos" 
+<div v-for="modelo in modelos" 
 :key="modelo.id"
 :value="modelo.id">
 <!--@change="EditDados($event, modelo.id)"-->
-<form v-on:submit.prevent="getModeloForm"
+<form @submit.prevent="getModeloForm"
 v-on:change="EditDados($event,modelo.id)">
 
-<Card
+<!--<Card
 :titulo="modelo.name"
 :conteudo="modelo.content"
-/>
+/>-->
+<p>{{modelo.name}}</p>
+<p>{{modelo.content}}</p>
 
 <input  
 :value="modelo.name" 
@@ -68,15 +68,15 @@ type="text"
 class="btn btn-success" type="submit">
  Salvar
  </button>
-
+<div>
 <button class="btn btn-danger" 
 @click="deleteDado(modelo.id)">
 Deletar
 </button>
-
-</form>
-
 </div>
+</form>
+</div>
+
 
 <a href="MyModelos" class="btn btn-primary" type="submit" value="Submit">
     Acessar modelos
@@ -172,15 +172,15 @@ export default{
         const content=event.target.value;
 //const modeloName=event.target.value;
         //console.log("teste 2", data)
-        const dataJson=JSON.stringify({name});
-          const modelo=JSON.stringify({content});
+        const dataJson=JSON.stringify({name,content});
+          
             console.log("aquei tbm é um teste:",dataJson)
-          console.log("aquei tbm é um teste 2:",modelo)
+         
           const req=await fetch(`http://localhost:3000/modelos/${id}`,{
            // const req=await fetch(`http://homologacao.api.tracker.online.maceio.al.gov.br/v1/modelos/${id}`,{
             method:"PUT",
             headers: {"Content-type":"application/json"},
-            body:dataJson,modelo
+            body:dataJson
         });
         this.getModeloForm();
         const res=await req.json();
