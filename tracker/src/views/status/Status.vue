@@ -100,41 +100,35 @@ export default {
     },
     methods:{
     async getStatus(){
-       // const req=await fetch("http://homologacao.api.tracker.online.maceio.al.gov.br/v1/status")
-       const req=await fetch("http://localhost:3000/status");
+       const req=await fetch("http://homologacao.api.tracker.online.maceio.al.gov.br/v1/status")
+       //const req=await fetch("http://localhost:3000/status");
         const data=await req.json();
         this.status=data;
-        console.log("este é o get" ,this.status);
+        //console.log("este é o get" ,this.status);
 
 
     },
      async deleteDado(id){
-     const req=await fetch(`http://localhost:3000/status/${id}`,{
-   // const req=await fetch(`http://homologacao.api.tracker.online.maceio.al.gov.br/v1/canais/${id}`,{
+     //const req=await fetch(`http://localhost:3000/status/${id}`,{
+    const req=await fetch(`http://homologacao.api.tracker.online.maceio.al.gov.br/v1/canais/${id}`,{
             method:"DELETE"
         })
+        this.getStatus();  
         const res=await req.json();     
-         this.getStatus();     
+            
         // console.log("teste 2",res)  
         },
 
         async FormStatus(){
-           // console.log(typeof this.status)
-           //pop
-/*let teste={id:100, name:'yte'}
-this.status.push(teste)*/
-/*for(const prop in this.status){
-    console.log(this.status[prop]["id"])
-}*/
-           // console.log(this.status)
+         
        const data={
             name:this.name
         }
         const ModeloJson=JSON.stringify(data);
-        const req=await fetch("http://localhost:3000/status",{
-          //const req=await fetch("http://homologacao.api.tracker.online.maceio.al.gov.br/v1/status",{
+       // const req=await fetch("http://localhost:3000/status",{
+          const req=await fetch("http://homologacao.api.tracker.online.maceio.al.gov.br/v1/status",{
             method:"POST",
-            headers:{"Content-Type":"application/json"},
+           // headers:{"Content-Type":"application/json"},
             body:ModeloJson
             });
         
@@ -159,19 +153,19 @@ this.status.push(teste)*/
 
 const dataJson=JSON.stringify({name});
 
-console.log("Estou aquio", name)
-console.log("Estou aquio", dataJson)
-
-const req=await fetch(`http://localhost:3000/status/${id}`,{
+//console.log("Estou aquio", name)
+//console.log("Estou aquio", dataJson)
+const req=await fetch(`http://homologacao.api.tracker.online.maceio.al.gov.br/v1//status/${id}`,{
+//const req=await fetch(`http://localhost:3000/status/${id}`,{
 method:"PUT",
-headers:{"Content-type":"application/json"},
+//headers:{"Content-type":"application/json"},
 body:dataJson
 
 })
   this.getStatus();
 
 const res =await req.json();
-console.log("teste",res )
+//console.log("teste",res )
 this.nama=""
 //alert("Esat funcionando")
     }

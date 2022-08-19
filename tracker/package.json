@@ -4,10 +4,11 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "backend":"json-server --watch db/db.json",
+    "backend": "json-server --watch db/db.json",
     "preview": "vite preview --port 4173"
   },
   "dependencies": {
+    "@tinymce/tinymce-vue": "^4.0.7",
     "bootstrap": "^5.2.0",
     "json-server": "^0.17.0",
     "pinia": "^2.0.16",

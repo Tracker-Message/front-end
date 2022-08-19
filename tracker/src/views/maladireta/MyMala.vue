@@ -84,10 +84,13 @@ export default{
     },
     methods:{
         async getModelos(){
-            const req= await fetch("http://localhost:3000/modelos");
+
+            //const req= await fetch("http://localhost:3000/modelos");
+            const req= await fetch("http://homologacao.api.tracker.online.maceio.al.gov.br/v1/mala-direta");
+           
             const data=await req.json();
              this.template_id=data;
-             console.log("aqui é o primeiro teste",this.template_id)
+             //console.log("aqui é o primeiro teste",this.template_id)
 
         },
         async Maladireta(){
@@ -99,20 +102,19 @@ export default{
           }
 
             const MalaDiretaJson=JSON.stringify(data);
-            const req=await fetch("http://localhost:3000/mala-direta",{
+            const req=await fetch("http://homologacao.api.tracker.online.maceio.al.gov.br/v1/mala-direta",{
             method:"POST",
-            headers:{"Content-Type":"application/json"},
+           // headers:{"Content-Type":"application/json"},
             body:MalaDiretaJson
             })
             //falta mais
             const res = await req.json()
            
-           // this.getModeloForm();
+           this.getModelos();
             this.file="";
             this.template_id=""
-            this.interested_unit=""
-            
-            console.log("tste da mala direta", res);
+            this.interested_unit=""   
+            //console.log("tste da mala direta", res);
         },
 
 

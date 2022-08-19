@@ -43,22 +43,13 @@ export default{
     },
     methods:{
         async getMyMala(){
-            const req=await fetch("http://localhost:3000/mala-direta");
+           // const req=await fetch("http://localhost:3000/mala-direta");
+            const req=await fetch("http://homologacao.api.tracker.online.maceio.al.gov.br/v1/mala-direta");
             const data=await req.json();
             this.mala_direta=data;
             console.log("teste mala",this.mala_direta);
         },
-          async deleteDado(id){
-       // const req=await fetch(`http://homologacao.api.tracker.online.maceio.al.gov.br/v1/modelos/${id}`,{
-         const req=await fetch(`http://localhost:3000/mala-direta/${id}`,{
-            method:"DELETE"
-        })
-        
-        const res=await req.json();
-      
-         this.getMyMala();
-        
-        },
+         
 
         ExibirEditor(){
             this.EditarMala=!this.Editarstatus;

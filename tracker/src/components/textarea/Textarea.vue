@@ -2,31 +2,52 @@
 
 <div >
 
-   <label>{{label}}  </label>
-   <input
+   <label></label>
+ <!--  <input
    class="form-control" 
    :type="type"
    :placeholder="placeholder"
    :value="Modelcontent" 
    @input="$emit('update:Modelcontent', $event.target.value)"
+   <editor  :value='Container' @input="@emit()" />
    />
- 
+ -->
+ <editor
+v-model='content'
+height="300"
+api-key="no-api-key"
+:init=" {
+    plugins:'lists link image table'
+    }"
+:id="content"
+/>
+
 </div>
 
 
 </template>
-<script>
+<script >
+import Editor from '@tinymce/tinymce-vue';
 export default{
-    name: 'Textarea',
+    name: 'textarea',
     props:{
-    label: String,
-    placeholder:String,
-    type:String,
-    content:String
+   // label: String,
+    //placeholder:String,
+   // type:String,
+   // content:String
     /*content:{
       type:String,*/
     },
-    emits:['update:content']
+    data(){
+    return{
+      content:''
+    }
+
+    },
+    components:{
+      'editor': Editor
+    },
+   // emits:['update:content']
     
 }
 </script>

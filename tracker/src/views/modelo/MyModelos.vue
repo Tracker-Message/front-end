@@ -12,7 +12,10 @@
 
 
 </template>
+
+
 <script >
+
 import Card from "../../components/card/Card.vue";
 import Input from "../../components/input/Input.vue";
 

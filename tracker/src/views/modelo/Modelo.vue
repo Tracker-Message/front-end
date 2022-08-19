@@ -8,7 +8,7 @@
 
 <div>
 <button  @click="ExibirCadastroModelo"
- class="btn btn-primary">Editar 
+ class="btn btn-primary">{{TextoBotao}}
  </button>
 
 </div>
@@ -21,23 +21,27 @@ placeholder="Informar título"
 label="Título"
 />
 
-<Input 
-v-model="content"
-placeholder="Informar conteúdo"
-label="Conteúdo"
+<editor
+v-model='content'
+ output-format="text"
+api-key="no-api-key"
+:init=" {
+    plugins:'lists link image table'
+    }"
+id="content"
 />
 
 <Button 
  criarModelo="Adicionar modelo"
  />
 
-<div v-show="CriarModelo">
 
-</div>
+
 </form>
  
-    <h2>Estes são os modelos de mensagens criados</h2>
-  
+   
+  <div v-show="CriarModelo">
+ <h2>Estes são os modelos de mensagens criados</h2>
 <div v-for="modelo in modelos" 
 :key="modelo.id"
 :value="modelo.id">
@@ -45,38 +49,46 @@ label="Conteúdo"
 <form @submit.prevent="getModeloForm"
 v-on:change="EditDados($event,modelo.id)">
 
-<!--<Card
+<Card
 :titulo="modelo.name"
 :conteudo="modelo.content"
-/>-->
+/>
+<!--
 <p>{{modelo.name}}</p>
 <p>{{modelo.content}}</p>
-
-<input  
+-->
+<input class="form-control mb-3"
 :value="modelo.name" 
 label="Escolha o titúlo" 
 type="text"
 />
 
-<input 
-:value="modelo.content"
-label="Escolha o conteúdo"
-type="text"
+<editor
+:value="content"
+output-format="text"
+api-key="no-api-key"
+:init=" {
+    plugins:'lists link image table'
+    }"
+
 />
 
 <button 
 class="btn btn-success" type="submit">
  Salvar
  </button>
+
 <div>
 <button class="btn btn-danger" 
 @click="deleteDado(modelo.id)">
 Deletar
 </button>
 </div>
-</form>
-</div>
 
+</form>
+
+</div>
+</div>
 
 <a href="MyModelos" class="btn btn-primary" type="submit" value="Submit">
     Acessar modelos
@@ -97,31 +109,38 @@ Deletar
 </div>
 </template>
 
-<script>
+<script >
+
 import Input from '../../components/input/Input.vue';
 import Button from '../../components/button/Button.vue';
 import Card from '../../components/card/Card.vue';
+
+import Editor from '@tinymce/tinymce-vue';
+
 
 export default{
     name: "Modelo",
     components:{
         Input,
         Button, 
-        Card
+        Card,
+        Editor
     },
     data(){
         return{
             name:'',
             content:'',
             modelos:"",
-            CriarModelo:false
+            CriarModelo:false,
+            TextoBotao:"Editar"
+           // Editor
         }
     },
     methods:{
         //metodo
         async getModeloForm(){
-       const req=await fetch("http://localhost:3000/modelos")
-       //const req=await fetch("http://homologacao.api.tracker.online.maceio.al.gov.br/v1/modelos")
+       //const req=await fetch("http://localhost:3000/modelos")
+       const req=await fetch("http://homologacao.api.tracker.online.maceio.al.gov.br/v1/modelos")
         const data=await req.json();
         this.modelos=data;
         //this.content=data.content;  
@@ -136,11 +155,11 @@ export default{
             }
             //console.log("teste modelo: 2", data)
           const ModeloJson=JSON.stringify(data);
-           const req=await fetch("http://localhost:3000/modelos",{
-          //const req=await fetch("http://homologacao.api.tracker.online.maceio.al.gov.br/v1/canais",{
+           //const req=await fetch("http://localhost:3000/modelos",{
+          const req=await fetch("http://homologacao.api.tracker.online.maceio.al.gov.br/v1/modelos",{
 
             method:"POST",
-            headers:{"Content-Type":"application/json"},
+            //headers:{"Content-Type":"application/json"},
             body:ModeloJson
             })
             //falta mais
@@ -150,13 +169,13 @@ export default{
             this.name="";
             this.content="";
             
-            console.log("teste 2", res);
+            //console.log("teste 2", res);
         },
 
 
          async deleteDado(id){
-       // const req=await fetch(`http://homologacao.api.tracker.online.maceio.al.gov.br/v1/modelos/${id}`,{
-         const req=await fetch(`http://localhost:3000/modelos/${id}`,{
+       const req=await fetch(`http://homologacao.api.tracker.online.maceio.al.gov.br/v1/modelos/${id}`,{
+         //const req=await fetch(`http://localhost:3000/modelos/${id}`,{
             method:"DELETE"
         })
         
@@ -176,10 +195,10 @@ export default{
           
             console.log("aquei tbm é um teste:",dataJson)
          
-          const req=await fetch(`http://localhost:3000/modelos/${id}`,{
-           // const req=await fetch(`http://homologacao.api.tracker.online.maceio.al.gov.br/v1/modelos/${id}`,{
+         // const req=await fetch(`http://localhost:3000/modelos/${id}`,{
+            const req=await fetch(`http://homologacao.api.tracker.online.maceio.al.gov.br/v1/modelos/${id}`,{
             method:"PUT",
-            headers: {"Content-type":"application/json"},
+           // headers: {"Content-type":"application/json"},
             body:dataJson
         });
         this.getModeloForm();
@@ -192,6 +211,11 @@ export default{
         },
         ExibirCadastroModelo(){
             this.CriarModelo=!this.CriarModelo;
+            if(!this.CriarModelo){
+                 this.TextoBotao="Editar"
+            }else{
+                 this.TextoBotao="Fechar"
+            }
         }
 
     }, 

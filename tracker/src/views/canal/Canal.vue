@@ -97,8 +97,8 @@ export default{
     methods:{
         //provavel isso é o jeto de pegar dados
       async getCanais(){
-         // const req=await fetch("http://homologacao.api.tracker.online.maceio.al.gov.br/v1/canais");
-          const req=await fetch("http://localhost:3000/canais")
+         const req=await fetch("http://homologacao.api.tracker.online.maceio.al.gov.br/v1/canais");
+          //const req=await fetch("http://localhost:3000/canais")
            const data=await req.json();
 
             this.canais=data;
@@ -113,10 +113,10 @@ export default{
           
            console.log("teste 1", data)
           const CanalMsgJson=JSON.stringify(data);
-          //const req=await fetch("http://homologacao.api.tracker.online.maceio.al.gov.br/v1/canais",{
-            const req=await fetch("http://localhost:3000/canais",{
+          const req=await fetch("http://homologacao.api.tracker.online.maceio.al.gov.br/v1/canais",{
+           // const req=await fetch("http://localhost:3000/canais",{
                 method:"POST" ,
-               headers:{"Content-Type":"application/json"},
+               //headers:{"Content-Type":"application/json"},
                 body:CanalMsgJson
             });
 
@@ -127,8 +127,8 @@ export default{
             
         },
           async deleteDado(id){
-     const req=await fetch(`http://localhost:3000/canais/${id}`,{
-       // const req=await fetch(`http://homologacao.api.tracker.online.maceio.al.gov.br/v1/canais/${id}`,{
+     //const req=await fetch(`http://localhost:3000/canais/${id}`,{
+       const req=await fetch(`http://homologacao.api.tracker.online.maceio.al.gov.br/v1/canais/${id}`,{
             method:"DELETE"
         })
         const res=await req.json();     
@@ -140,18 +140,17 @@ export default{
         const name=event.target.value;
       
       const dataJson=JSON.stringify({name});          
-      // const req=await fetch(`http://homologacao.api.tracker.online.maceio.al.gov.br/v1/canais/${id}`,{
-            const req=await fetch(`http://localhost:3000/canais/${id}`,{
+      const req=await fetch(`http://homologacao.api.tracker.online.maceio.al.gov.br/v1/canais/${id}`,{
+           // const req=await fetch(`http://localhost:3000/canais/${id}`,{
             method:"PUT",
-            headers: {"Content-type":"application/json"},
+           // headers: {"Content-type":"application/json"},
             body:dataJson
         });
         this.getCanais();  
         const res=await req.json();
         
         console.log("atualizando canais",res)
-        
-            
+                    
             this.name="";
         },
         

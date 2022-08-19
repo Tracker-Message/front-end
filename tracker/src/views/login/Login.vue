@@ -6,7 +6,7 @@
         <p>Faça login </p>
         <p>Tracker é um projeto para enviar mensagens para clientes</p>
 
-        <form action="" v-on:submit.prevent="checkForm">
+        <form action="" v-on:submit.prevent="checkForm()">
           <Input type="text" 
           label="Informe o nome"
           placeholder="Informe o Nome"
@@ -16,7 +16,7 @@
           label="Informe a senha"
            v-model="password"/>
 
-          <Button  criarModelo="Logar" @click="PaginaProx" />
+          <button class="btn btn-success" type="submit">Acessar login</button>
           
 
 <a href="Canal" v-show="Pagina"
@@ -43,7 +43,6 @@ Seguir
 import Input from '../../components/input/Input.vue';
 import Button from '../../components/button/Button.vue';
 import navbar from '../../navbar/navbar.vue';
-//import Menu from './Menu.vue'
 
 
 export default {
@@ -58,57 +57,51 @@ export default {
       username: '',
       password: '',
       errors: [],
+      
       Pagina:false
     }
   },
   methods: {
     async getLogin(){
-      const req=await fetch("http://localhost:3000/autenticar");
-     // const req=await fetch("http://homologacao.api.tracker.online.maceio.al.gov.br/v1/autenticar")
+      //const req=await fetch("http://localhost:3000/autenticar");
+     const req=await fetch("http://homologacao.api.tracker.online.maceio.al.gov.br/v1/autenticar")
       const data=await req.json();
-      this.login=data;
+      this.login=data;     
+      //console.log("teste 1", this.login);
       
-      console.log("teste 1", this.login);
-
     },
     
     //função de validação
-   checkForm: function () {
-      // limpar o array
-      //this.username="testeee"
-      //this.password="teste"
+     checkForm: function () {
+     
       this.errors = [];
-
-      
-     if(!this.username){
-        this.errors.push("O nome precisa ser informado!");
-      }else{
-
+      let teste1="teste"
+      //let teste2=""
+     if(!this.username || this.username != teste1){
+        this.errors.push("O nome precisa ser informado de forma correta!");
       }
 
-      if (!this.password) {
-        this.errors.push("A senha precisa ser informado!")
-        
+      if (!this.password || this.password !=  teste1) {
+        this.errors.push("A senha precisa ser informado de forma correta!")
+      }else if(this.password || this.password ==  teste1){
+        this.Pagina=! this.Pagina;
       }
-        
       
-      /*else{
-        alert("logado com sucesso!")
-      }*/
-   
+    this.password=""
+    this.username=""
 
-    }, 
-     PaginaProx(){
-      this.Pagina=! this.Pagina;
-     }
+    },
+       //check: new checkForm(teste, teste)
+//console.log(check)
   
-
   },
+  
   mounted(){
   
    this.getLogin()
 
   }
+  
 }
 
 </script>
