@@ -1,66 +1,51 @@
 <template>
-<div class="bg-dark" >
+<div class="bg-dark">
     <button class="btn btn-primary" @click="ExibirInputEdit">
-{{TextoBotao}}
-</button>
+        {{TextoBotao}}
+    </button>
 
-<form action="" v-on:submit.prevent="CanalMsgForm">
+    <form action="" v-on:submit.prevent="CanalMsgForm">
 
-    <div class="canal">
-    <h1>Crie um canal de mensagem</h1>
-    
-    <Input 
-type="text"
-v-model="name"
-placeholder="Informe o canal"
-label="Informe o canal"
-/>
+        <div class="canal">
+            <h1>Crie um canal de mensagem</h1>
 
-<Button 
- criarModelo="Cadastrar"
- />
+            <Input type="text" v-model="name" placeholder="Informe o canal" label="Informe o canal" />
 
-</div>
+            <Button criarModelo="Cadastrar" />
 
-<br/>
+        </div>
 
+        <br />
 
-</form>
-<h2 color="white">Canais de mensagens cadastrados</h2>
+    </form>
+    <h2 color="white">Canais de mensagens cadastrados</h2>
     <!--Precisa ser envolvido em uma div-->
 
-<div v-for="canal in canais" 
-:key="canal.id" 
-   :value="canal.id">
+    <div v-for="canal in canais" :key="canal.id" :value="canal.id">
 
-<form @submit.prevent="getCanais"
-v-on:change="EditForm($event,canal.id)">
+        <Table :name="canal.name" />
 
-<Table :name="canal.name"/>
+        <form @submit.prevent="getCanais">
 
-<div v-show="editarInput">
+            <div v-show="editarInput">
 
-<input
-type="text"
-:value="canal.name"
-label="Informe o canal que voce quer mudar"
-/>
-<!--name="name">-->
+                <div>
 
-<button 
-class="btn btn-success" type="submit">
- Salvar
- </button>
+                    <input type="text" :value="name" label="Informe o canal que voce quer mudar" v-on:change="EditForm($event,canal.id)" />
+                    <!--name="name">-->
 
-<button class="btn btn-danger"
- @click="deleteDado(canal.id)">Deletar</button>
-</div>
-</form>
-</div>
+                    <button class="btn btn-success" type="submit" @click="teste">
+                        Salvar
+                    </button>
+
+                </div>
+
+                <button class="btn btn-danger" @click="deleteDado(canal.id)">Deletar</button>
+            </div>
+        </form>
+    </div>
 
 </div>
-
-
 
 <a href="/" class="btn btn-warning" type="submit" value="Submit">
     Voltar
@@ -68,8 +53,6 @@ class="btn btn-success" type="submit">
 <a href="/Modelo" class="btn btn-success" type="submit" value="Submit">
     Seguir
 </a>
-
-
 </template>
 
 <script>
@@ -77,105 +60,111 @@ import Input from '../../components/input/Input.vue';
 import Button from '../../components/button/Button.vue'
 import Table from '../../components/table/Table.vue'
 
-
-export default{
+export default {
     name: 'Canal',
-    components:{
+    components: {
         Input,
         Button,
         Table
-      
+
     },
-    data(){
-        return{
-        name:'',
-        canais:"",
-        editarInput:false,
-        TextoBotao:"Editar"
+    data() {
+        return {
+            name: '',
+            canais: "",
+            editarInput: false,
+            TextoBotao: "Editar"
         }
     },
-    methods:{
+    methods: {
         //provavel isso é o jeto de pegar dados
-      async getCanais(){
-         const req=await fetch("http://homologacao.api.tracker.online.maceio.al.gov.br/v1/canais");
-          //const req=await fetch("http://localhost:3000/canais")
-           const data=await req.json();
+        async getCanais() {
+            //const req=await fetch("http://homologacao.api.tracker.online.maceio.al.gov.br/v1/canais");
+            const req = await fetch("http://localhost:3000/canais")
+            const data = await req.json();
 
-            this.canais=data;
-           
+            this.canais = data;
 
         },
         //enviar
-        async CanalMsgForm(){
-            const data={
-                 name:this.name            
+        async CanalMsgForm() {
+            const data = {
+                name: this.name
             }
-          
-           console.log("teste 1", data)
-          const CanalMsgJson=JSON.stringify(data);
-          const req=await fetch("http://homologacao.api.tracker.online.maceio.al.gov.br/v1/canais",{
-           // const req=await fetch("http://localhost:3000/canais",{
-                method:"POST" ,
-               //headers:{"Content-Type":"application/json"},
-                body:CanalMsgJson
+
+            // console.log("teste 1", data)
+            const CanalMsgJson = JSON.stringify(data);
+            //const req=await fetch("http://homologacao.api.tracker.online.maceio.al.gov.br/v1/canais",{
+            const req = await fetch("http://localhost:3000/canais", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: CanalMsgJson
             });
 
-            const res =await req.json()
-             this.getCanais();     
-              
-               this.name="";
-            
+            const res = await req.json()
+            this.getCanais();
+
+            this.name = "";
+
         },
-          async deleteDado(id){
-     //const req=await fetch(`http://localhost:3000/canais/${id}`,{
-       const req=await fetch(`http://homologacao.api.tracker.online.maceio.al.gov.br/v1/canais/${id}`,{
-            method:"DELETE"
-        })
-        const res=await req.json();     
-      
+        async deleteDado(id) {
+            const req = await fetch(`http://localhost:3000/canais/${id}`, {
+                //const req=await fetch(`http://homologacao.api.tracker.online.maceio.al.gov.br/v1/canais/${id}`,{
+                method: "DELETE"
+            })
+            const res = await req.json();
+
         },
 
-        async EditForm(event,id){     
-      
-        const name=event.target.value;
-      
-      const dataJson=JSON.stringify({name});          
-      const req=await fetch(`http://homologacao.api.tracker.online.maceio.al.gov.br/v1/canais/${id}`,{
-           // const req=await fetch(`http://localhost:3000/canais/${id}`,{
-            method:"PUT",
-           // headers: {"Content-type":"application/json"},
-            body:dataJson
-        });
-        this.getCanais();  
-        const res=await req.json();
-        
-        console.log("atualizando canais",res)
-                    
-            this.name="";
+        async EditForm(event, id) {
+
+            const name = event.target.value;
+
+            const dataJson = JSON.stringify({
+                name
+            });
+            // const req=await fetch(`http://homologacao.api.tracker.online.maceio.al.gov.br/v1/canais/${id}`,{
+            const req = await fetch(`http://localhost:3000/canais/${id}`, {
+                method: "PUT",
+                headers: {
+                    "Content-type": "application/json"
+                },
+                body: dataJson
+            });
+            this.getCanais();
+            const res = await req.json();
+
+            console.log("atualizando canais", res)
+
+            //this.name="";
         },
-        
+        teste: function () {
+            console.log("ola")
+        },
         //diretiva
-        ExibirInputEdit(){
-            this.editarInput=!this.editarInput;
-            if(!this.editarInput){
-                this.TextoBotao="Editar"
-            }else{
-                this.TextoBotao="Fechar"
+        ExibirInputEdit() {
+            this.editarInput = !this.editarInput;
+            if (!this.editarInput) {
+                this.TextoBotao = "Editar"
+            } else {
+                this.TextoBotao = "Fechar"
             }
         },
 
-    },   
-   mounted(){     
-       this.getCanais();     
-       //this.CanalMsgForm()
+    },
+    mounted() {
+        this.getCanais();
+        //this.CanalMsgForm()
     }
 }
-
-
 </script>
-<style>
 
-.canal h1,h2, p{
+<style>
+.canal h1,
+h2,
+p {
     color: white;
 
 }

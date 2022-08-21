@@ -3,7 +3,16 @@
     {
       "username": "teste",
       "password": "teste"
+    },
+    {
+      "username": "taina",
+      "password": "123456"
+    },
+    {
+      "username": "rodrigo",
+      "password": "123456"
     }
+    
   ],
   "modelos": [
     {
@@ -39,11 +48,7 @@
   ],
   "canais": [
     {
-      "name": "kkk",
-      "id": 6
-    },
-    {
-      "name": "este é um teste",
+      "name": "x",
       "id": 10
     },
     {
