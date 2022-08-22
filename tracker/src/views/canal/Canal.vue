@@ -10,6 +10,9 @@
             <h1>Crie um canal de mensagem</h1>
 
             <Input type="text" v-model="name" placeholder="Informe o canal" label="Informe o canal" />
+            <div class="alert alert-danger" v-for="error in errors">
+                {{ error }}
+            </div>
 
             <Button criarModelo="Cadastrar" />
 
@@ -88,25 +91,32 @@ export default {
         },
         //enviar
         async CanalMsgForm() {
-            const data = {
-                name: this.name
+            this.errors = [];
+            if (this.name == '') {
+                //console.log("Campo vazio");
+                this.getCanais();
+                this.errors.push("Campo vazio");
+            } else {
+                const data = {
+                    name: this.name
+                }
+
+                // console.log("teste 1", data)
+                const CanalMsgJson = JSON.stringify(data);
+                //const req=await fetch("http://homologacao.api.tracker.online.maceio.al.gov.br/v1/canais",{
+                const req = await fetch("http://localhost:3000/canais", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: CanalMsgJson
+                });
+
+                const res = await req.json()
+                this.getCanais();
+
+                this.name = "";
             }
-
-            // console.log("teste 1", data)
-            const CanalMsgJson = JSON.stringify(data);
-            //const req=await fetch("http://homologacao.api.tracker.online.maceio.al.gov.br/v1/canais",{
-            const req = await fetch("http://localhost:3000/canais", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: CanalMsgJson
-            });
-
-            const res = await req.json()
-            this.getCanais();
-
-            this.name = "";
 
         },
         async deleteDado(id) {
@@ -140,9 +150,7 @@ export default {
 
             //this.name="";
         },
-        teste: function () {
-            console.log("ola")
-        },
+
         //diretiva
         ExibirInputEdit() {
             this.editarInput = !this.editarInput;

@@ -1,10 +1,14 @@
+
+
 <template>
 <div class="bg-dark">
 
-<h2>Aqui é os envios</h2>
+<h2>Mala diretas enviadas</h2>
+<p>Envio de email, sms e diversos outros meios </p>
 <div  v-for="mala in mala_direta" :key="mala.id" >
+
 <Card :titulo="mala.file"
-:conteudo="mala.template_id"
+:conteudo="mala.interested_unit"
 />
 
 
@@ -24,13 +28,11 @@
 <script>
 import Card from "../../components/card/Card.vue";
 import Input from "../../components/input/Input.vue";
-
 export default{
     name:'MyMala',
     components:{
         Input,
         Card
-
     },
     data(){
         return{
@@ -43,14 +45,13 @@ export default{
     },
     methods:{
         async getMyMala(){
-           // const req=await fetch("http://localhost:3000/mala-direta");
-            const req=await fetch("http://homologacao.api.tracker.online.maceio.al.gov.br/v1/mala-direta");
+           const req=await fetch("http://localhost:3000/mala-direta");
+            //const req=await fetch("http://homologacao.api.tracker.online.maceio.al.gov.br/v1/mala-direta");
             const data=await req.json();
             this.mala_direta=data;
             console.log("teste mala",this.mala_direta);
         },
          
-
         ExibirEditor(){
             this.EditarMala=!this.Editarstatus;
         }
@@ -59,5 +60,4 @@ export default{
         this.getMyMala();
     }
 }
-
 </script>

@@ -8,13 +8,9 @@
 
             <form action="" v-on:submit.prevent="checkForm()">
 
-         <Input type="text" 
-                 placeholder="Informe o Nome"
-                  v-model="username" />
+                <Input type="text" placeholder="Informe o Nome" v-model="username" />
 
-                <Input type="password" 
-                placeholder="Informe a senha"
-                 label="Informe a senha" v-model="password" />
+                <Input type="password" placeholder="Informe a senha" label="Informe a senha" v-model="password" />
 
                 <button class="btn btn-success" type="submit">Acessar login</button>
 
@@ -40,70 +36,61 @@ import Button from '../../components/button/Button.vue';
 import navbar from '../../navbar/navbar.vue';
 //import {required, minLength, maxLength,between} from 'vuelidate/lib/validators'
 
-
 export default {
     name: 'Login',
     components: {
         Input,
         Button,
         navbar
-       
+
     },
     data() {
-      return {
-        username: '',
-        password: '',
-        errors: [],
+        return {
+            username: '',
+            password: '',
+            errors: [],
 
-        Pagina: false
-      }
+            Pagina: false
+        }
     },
     methods: {
         async getLogin() {
-            const req=await fetch("http://localhost:3000/autenticar");
-           // const req = await fetch("http://homologacao.api.tracker.online.maceio.al.gov.br/v1/autenticar")
+            const req = await fetch("http://localhost:3000/autenticar");
+            // const req = await fetch("http://homologacao.api.tracker.online.maceio.al.gov.br/v1/autenticar")
             const data = await req.json();
             this.login = data;
-         //   console.log("teste 1", this.login);
-
         },
 
         //função de validação
-      checkForm: function () {
-          
-        this.getLogin();
-          //console.log("será que estou aqui",this.login)
+        checkForm: function () {
+
+            this.getLogin();
+            //console.log("será que estou aqui",this.login)
             this.errors = [];
-        let teste1 = this.login;
-        let array = Object.keys(teste1)
-      
-      //  console.log("aqui",teste1[0].username)
-       //console.log("em quantos sou", array.length)
-  
+            let teste1 = this.login;
 
-        for (let i = 0; i < teste1.length; i++) {
+            for (let i = 0; i < teste1.length; i++) {
 
-          if (teste1[i].username == this.username && teste1[i].password == this.password  ) {
-            //console.log("tudo certo");
-            this.Pagina = !this.Pagina;
-          } 
+                if (teste1[i].username == this.username && teste1[i].password == this.password) {
+                    //console.log("tudo certo");
+                    this.Pagina = !this.Pagina;
+                }
 
-        }
-
-        if (!this.username) {
-                this.errors.push("O nome precisa ser informado de forma correta!");               
             }
 
-            if (!this.password ) {
+            if (!this.username) {
+                this.errors.push("O nome precisa ser informado de forma correta!");
+            }
+
+            if (!this.password) {
                 this.errors.push("A senha precisa ser informado de forma correta!")
-            } 
+            }
 
             this.password = ""
             this.username = ""
-    
+
         }
-      
-     
+
     },
 
     mounted() {

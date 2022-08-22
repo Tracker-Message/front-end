@@ -7,6 +7,7 @@
    
     <div class="card-body">    
     <h5 class="card-title">{{conteudo}}</h5> 
+    <p>{{conteudoInfo}}</p>
     </div>
 
 </div>
@@ -21,7 +22,8 @@ export default {
     
     props:{
         titulo:String,
-        conteudo:String
+        conteudo:String,
+        conteudoInfo:String
     }
 }
 </script>

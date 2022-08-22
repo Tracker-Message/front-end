@@ -12,12 +12,11 @@
       "username": "rodrigo",
       "password": "123456"
     }
-    
   ],
   "modelos": [
     {
-      "name": "op6666",
-      "content": "op6666",
+      "name": "isso é um teste",
+      "content": "isso é um teste",
       "id": 2
     },
     {
@@ -26,37 +25,32 @@
       "id": 3
     },
     {
-      "name": "isso é o titulo",
-      "content": "isso é o titulo",
-      "id": 4
+      "name": "test",
+      "content": "ttestetetttttt",
+      "id": 17
     },
     {
-      "name": "555999",
-      "content": "555999",
-      "id": 10
+      "name": "modeloo",
+      "content": "modeloo",
+      "id": 18
     },
     {
-      "name": "teste",
-      "content": "teste",
-      "id": 12
-    },
-    {
-      "name": "yry",
-      "content": "yyy",
-      "id": 13
+      "name": "ola, usuario",
+      "content": "testw\n\n\n\t\n\t\n\n\n\t\n\t\n\n\n\t\n\t\n\n\n\t\n\t\n\n\n\t\n\t\n\n\n\t\n\t\n\n\n\t\n\t\n",
+      "id": 19
     }
   ],
   "canais": [
     {
-      "name": "x",
+      "name": "sms",
       "id": 10
     },
     {
-      "name": "este é um segundo texte",
+      "name": "email",
       "id": 11
     },
     {
-      "name": "teste",
+      "name": "hhh",
       "id": 12
     },
     {
@@ -66,37 +60,23 @@
   ],
   "mala-direta": [
     {
-      "template_id": "text",
       "file": "C:\\fakepath\\semec.txt",
-      "interested_unit": "",
+      "interested_unit": "Sefaz",
+      "id": 2
+    },
+    {
+      "file": "C:\\fakepath\\semec.txt",
+      "interested_unit": "Sefaz",
       "id": 3
-    },
-    {
-      "template_id": "texte modelo",
-      "file": "C:\\fakepath\\semec.txt",
-      "interested_unit": "",
-      "id": 4
-    },
-    {
-      "template_id": "texte modelo",
-      "file": "C:\\fakepath\\semec.txt",
-      "interested_unit": "",
-      "id": 5
-    },
-    {
-      "template_id": "texte modelo",
-      "file": "C:\\fakepath\\semec.txt",
-      "interested_unit": "",
-      "id": 6
     }
   ],
   "status": [
     {
-      "name": "yyyyyyyyyiiitt",
+      "name": "enviado",
       "id": 10
     },
     {
-      "name": "testeyyyyyy",
+      "name": "lido",
       "id": 11
     },
     {
@@ -106,6 +86,10 @@
     {
       "name": "tainaaa",
       "id": 13
+    },
+    {
+      "name": "teste",
+      "id": 14
     }
   ]
 }
