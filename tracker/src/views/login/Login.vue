@@ -14,8 +14,8 @@
 
                 <button class="btn btn-success" type="submit">Acessar login</button>
 
-                <a href="Canal" v-show="Pagina" class="btn btn-success" type="submit" value="Submit">
-                    Seguir
+                <a href="Menu" v-show="Pagina" class="btn btn-primary" type="submit" value="Submit">
+                    Abrir menu
                 </a>
 
                 <div class="alert alert-danger" v-for="error in errors">

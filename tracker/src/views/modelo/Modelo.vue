@@ -13,9 +13,31 @@
 
             <Input v-model="name" placeholder="Informar título" label="Título" />
 
-            <editor v-model='content' output-format="text" api-key="no-api-key" :init=" {
+      <!--     <editor v-model='content' output-format="text" api-key="no-api-key" :init=" {
     plugins:'lists link image table fullscreen  '
-    }" id="content" />
+    }" />
+
+--> 
+
+
+<editor
+       v-model="content"
+       api-key="no-api-key"
+       output-format="text"
+       :init="{
+         height: 500,
+         menubar: false,
+         plugins: [
+           'advlist autolink lists link image charmap print preview anchor',
+           'searchreplace visualblocks code fullscreen',
+           'insertdatetime media table paste code help wordcount'
+         ],
+         toolbar:
+           'undo redo | formatselect | bold italic backcolor | \
+           alignleft aligncenter alignright alignjustify | \
+           bullist numlist outdent indent | removeformat | help'
+       }"
+     />
 
             <div class="alert alert-danger" v-for="error in errors">
                 {{ error }}
@@ -34,19 +56,39 @@
 
                 <form @submit.prevent="getModeloForm" v-on:change="EditDados($event,modelo.id)">
 
-                    <!--
-<p>{{modelo.name}}</p>
-<p>{{modelo.content}}</p>
--->
-                    <input class="form-control mb-3" :value="modelo.name" label="Escolha o titúlo" type="text" />
+                    <input class="form-control mb-3"  placeholder="Edite o titúlo" type="text" />
 
-                    <Textarea id="article" :value="modelo.content">
+              <!--
 
-</Textarea>
+<editor value="content" placeholder="Edite o texto" output-format="text" api-key="no-api-key" :init=" {
+    plugins:'lists link image table fullscreen  '
+    }" />
 
-                    <div id="content" style="display: none">
-                        <p>{{modelo.content}}</p>
-                    </div>
+
+              -->      
+
+
+<editor
+       v-model="article"
+       api-key="no-api-key"
+       output-format="text"
+       :init="{
+         height: 500,
+         menubar: false,
+         plugins: [
+           'advlist autolink lists link image charmap print preview anchor',
+           'searchreplace visualblocks code fullscreen',
+           'insertdatetime media table paste code help wordcount'
+         ],
+         toolbar:
+           'undo redo | formatselect | bold italic backcolor | \
+           alignleft aligncenter alignright alignjustify | \
+           bullist numlist outdent indent | removeformat | help'
+       }"
+       inicial="ola"
+     />
+
+ <!--   <p>{{article}}</p> -->
 
                     <button class="btn btn-success" type="submit">
                         Salvar
@@ -89,10 +131,22 @@ import Textarea from '../../components/textarea/Textarea.vue';
 
 import Editor from '@tinymce/tinymce-vue';
 
-/*Editor.init({
-    selector:"article"
+/*tinymce.init({
+
+   // language:'pt_BR',
+    selector:'#article',
+    actionEditor:true,
+ //plugins:['lists link image table fullscreen'],
+   init_instance_callback:()=>{
+  // tinymce.get('#article').setContent($("#content").html());
+   //tinymce.activeEditor.setContent(document.getElementById('content').innerHTML);
+   tinymce.activeEditor.setContent(("#content").html());
+
+ }
+
 })
 */
+
 export default {
     name: "Modelo",
     components: {
@@ -120,7 +174,7 @@ export default {
             const data = await req.json();
             this.modelos = data;
             //this.content=data.content;  
-            console.log(this.modelos)
+            //console.log(this.modelos)
         },
 
         //metodo post
@@ -183,7 +237,7 @@ export default {
                 content
             });
 
-            console.log("aquei tbm é um teste:", dataJson)
+            //console.log("aquei tbm é um teste:", dataJson)
 
             const req = await fetch(`http://localhost:3000/modelos/${id}`, {
                 //const req=await fetch(`http://homologacao.api.tracker.online.maceio.al.gov.br/v1/modelos/${id}`,{
@@ -195,7 +249,7 @@ export default {
             });
             this.getModeloForm();
             const res = await req.json();
-            console.log("atualizando 1", res)
+            //console.log("atualizando 1", res)
 
             this.name = "";
             this.content = "";
@@ -208,7 +262,7 @@ export default {
             } else {
                 this.TextoBotao = "Fechar"
             }
-        }
+        },
 
     },
     mounted() {
