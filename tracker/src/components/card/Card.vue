@@ -21,9 +21,15 @@ export default {
     name:'Card',
     
     props:{
-        titulo:String,
-        conteudo:String,
-        conteudoInfo:String
+        titulo:{
+            type:String
+        },       
+        conteudo:{
+            type:String
+        },
+        conteudoInfo:{
+           type: String
+     }
     }
 }
 </script>

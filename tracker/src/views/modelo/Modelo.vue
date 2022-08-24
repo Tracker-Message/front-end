@@ -13,31 +13,25 @@
 
             <Input v-model="name" placeholder="Informar título" label="Título" />
 
-      <!--     <editor v-model='content' output-format="text" api-key="no-api-key" :init=" {
+            <!--     <editor v-model='content' output-format="text" api-key="no-api-key" :init=" {
     plugins:'lists link image table fullscreen  '
     }" />
 
---> 
+-->
 
-
-<editor
-       v-model="content"
-       api-key="no-api-key"
-       output-format="text"
-       :init="{
+            <editor v-model="content" api-key="no-api-key" output-format="text" :init="{
          height: 500,
          menubar: false,
-         plugins: [
+        /* plugins: [
            'advlist autolink lists link image charmap print preview anchor',
            'searchreplace visualblocks code fullscreen',
            'insertdatetime media table paste code help wordcount'
-         ],
+         ],*/
          toolbar:
            'undo redo | formatselect | bold italic backcolor | \
            alignleft aligncenter alignright alignjustify | \
            bullist numlist outdent indent | removeformat | help'
-       }"
-     />
+       }" />
 
             <div class="alert alert-danger" v-for="error in errors">
                 {{ error }}
@@ -49,37 +43,39 @@
 
         <div v-show="CriarModelo">
             <h2>Estes são os modelos de mensagens criados</h2>
-            <div v-for="modelo in modelos" :key="modelo.id" :value="modelo.id">
+            
+            <div v-for="modelo in modelos" :key="modelo.id" :value="modelo.id" >
                 <!--@change="EditDados($event, modelo.id)"-->
-
+<div>
                 <Card :titulo="modelo.name" :conteudo="modelo.content" />
 
-                <form @submit.prevent="getModeloForm" v-on:change="EditDados($event,modelo.id)">
-
-                    <input class="form-control mb-3"  placeholder="Edite o titúlo" type="text" />
-
-              <!--
+      </div>         
+       <form @submit.prevent="getModeloForm">
+                   <div>
+                   <input class="form-control mb-3" :value="inputName"  placeholder="Edite o titúlo" type="text"  @change="EditDados($event,modelo.id)"/>
+                  </div> 
+                  <input class="form-control mb-3" :value="inputContent"  placeholder="Edite o conteúdo" type="text"  @change="EditDados($event,modelo.id)"/>
+                    <!--
 
 <editor value="content" placeholder="Edite o texto" output-format="text" api-key="no-api-key" :init=" {
     plugins:'lists link image table fullscreen  '
     }" />
 
+              -->
+           
 
-              -->      
-
-
-<editor
+                    <!--<editor
        v-model="article"
        api-key="no-api-key"
        output-format="text"
        :init="{
          height: 500,
          menubar: false,
-         plugins: [
+        /* plugins: [
            'advlist autolink lists link image charmap print preview anchor',
            'searchreplace visualblocks code fullscreen',
            'insertdatetime media table paste code help wordcount'
-         ],
+         ],*/
          toolbar:
            'undo redo | formatselect | bold italic backcolor | \
            alignleft aligncenter alignright alignjustify | \
@@ -87,10 +83,10 @@
        }"
        inicial="ola"
      />
+-->
+                    <!--   <p>{{article}}</p> -->
 
- <!--   <p>{{article}}</p> -->
-
-                    <button class="btn btn-success" type="submit">
+                    <button class="btn btn-success"  type="submit" >
                         Salvar
                     </button>
 
@@ -99,10 +95,10 @@
                             Deletar
                         </button>
                     </div>
-
-                </form>
-
-            </div>
+                    
+              </form>
+          </div>
+           
         </div>
 
         <a href="MyModelos" class="btn btn-primary" type="submit" value="Submit">
@@ -117,7 +113,7 @@
             Seguir
         </a>
 
-        <br />
+        <br/>
 
     </div>
 </div>
@@ -159,6 +155,8 @@ export default {
     data() {
         return {
             name: '',
+            inputName: '',
+            inputContent: '',
             content: '',
             modelos: "",
             CriarModelo: false,
@@ -228,13 +226,13 @@ export default {
         //editar
 
         async EditDados(event, id) {
-            const name = event.target.value;
-            const content = event.target.value;
+            const inputName = event.target.value;
+            const inputContent = event.target.value;
             //const modeloName=event.target.value;
             //console.log("teste 2", data)
             const dataJson = JSON.stringify({
-                name,
-                content
+                name: inputName,
+                content: inputContent
             });
 
             //console.log("aquei tbm é um teste:", dataJson)

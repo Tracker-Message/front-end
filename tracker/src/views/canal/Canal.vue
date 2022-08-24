@@ -34,10 +34,10 @@
 
                 <div>
 
-                    <input type="text" :value="name" label="Informe o canal que voce quer mudar" v-on:change="EditForm($event,canal.id)" />
+                    <input type="text" :value="inputName" label="Informe o canal que voce quer mudar" v-on:change="EditForm($event,canal.id)" />
                     <!--name="name">-->
 
-                    <button class="btn btn-success" type="submit" @click="teste">
+                    <button class="btn btn-success" type="submit" @click="">
                         Salvar
                     </button>
 
@@ -74,6 +74,7 @@ export default {
     data() {
         return {
             name: '',
+            inputName:'',
             canais: "",
             editarInput: false,
             TextoBotao: "Editar"
@@ -130,10 +131,10 @@ export default {
 
         async EditForm(event, id) {
 
-            const name = event.target.value;
+            const  inputName = event.target.value;
 
             const dataJson = JSON.stringify({
-                name
+                name: inputName
             });
             // const req=await fetch(`http://homologacao.api.tracker.online.maceio.al.gov.br/v1/canais/${id}`,{
             const req = await fetch(`http://localhost:3000/canais/${id}`, {
@@ -146,7 +147,7 @@ export default {
             this.getCanais();
             const res = await req.json();
 
-            console.log("atualizando canais", res)
+            //console.log("atualizando canais", res)
 
             //this.name="";
         },

@@ -30,7 +30,7 @@
 
                 <div v-show="EditarStatus">
 
-                    <input label="Nome do Status" :value="nameStatus.name" type="text" />
+                    <input placeholder="Nome do Status" :value="inputName" type="text" />
 
                     <button class="btn btn-success" type="submit">
                         Salvar
@@ -77,6 +77,7 @@ export default {
     data() {
         return {
             name: '',
+            inputName:'',
             status: '',
             EditarStatus: false,
             TextoBotao: "Editar"
@@ -141,10 +142,10 @@ export default {
             this.getStatus();
         },
         async EditStatus(event, id) {
-            const name = event.target.value;
+            const inputName = event.target.value;
 
             const dataJson = JSON.stringify({
-                name
+                name:inputName
             });
 
             //const req=await fetch(`http://homologacao.api.tracker.online.maceio.al.gov.br/v1//status/${id}`,{
